@@ -1,0 +1,19 @@
+{
+  "name": "foundit",
+  "version": "1.0.0",
+  "description": "The free and easy answer to lost items",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akaplo/falconproj.git"
+  },
+  "author": "326 falcons",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akaplo/falconproj/issues"
+  },
+  "homepage": "https://github.com/akaplo/falconproj#readme"
+}
