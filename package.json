@@ -1,19 +1,21 @@
 {
-  "name": "foundit",
+  "name": "02-basic-app",
   "version": "1.0.0",
-  "description": "The free and easy answer to lost items",
-  "main": "index.js",
+  "description": "02 Basic Expression Application",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/akaplo/falconproj.git"
-  },
-  "author": "326 falcons",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/akaplo/falconproj/issues"
+  "dependencies": {
+    "express": "^4.13.3",
+    "express-handlebars": "^2.0.1"
   },
-  "homepage": "https://github.com/akaplo/falconproj#readme"
+  "devDependencies": {
+    "archiver": "^0.15.1",
+    "chai": "^3.3.0",
+    "fs-extra": "^0.24.0",
+    "mocha": "^2.3.3"
+  }
 }
