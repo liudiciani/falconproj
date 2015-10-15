@@ -1,12 +1,12 @@
 {
-  "name": "02-basic-app",
-  "version": "1.0.0",
-  "description": "02 Basic Expression Application",
+  "name": "foundit",
+  "version": "0.0.1",
+  "description": "THe free and easy answer to all lost items",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "falcons",
   "license": "ISC",
   "dependencies": {
     "express": "^4.13.3",
