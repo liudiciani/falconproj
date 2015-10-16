@@ -8,14 +8,14 @@ This repository is for Falcon teammembers to commit code changes for our semeste
 *Team Roles:*
 Essentially we're a team of full stack web engineers.
 
-**Andrew Raleigh** -  Overview of Team Members / POWERPOINT - Databases and Usability (Full Stack)
+**Andrew Raleigh** -  Originally from New Jersey, Andrew is a computer science student focusing on data science and search engines at UMass Amherst. He contributes towards backend database engineering. When he’s not exploring data science, Andrew can be found snowboarding mountains all over New England and training at the rec center. He is also an avid Manchester United and soccer fan.
 
-**Jared Koester** - Main Description of Application - Full Stack TBD
+**Jared Koester** - Under Construction
 
-**Lisa Iudiciani** - Design of Application / POWERPOINT - UX/UI Development 
+**Lisa Iudiciani** - Lisa is currently a computer science student with a focus in software engineering  at UMass Amherst. She will exercise her passion for the User Interface/User Experience fields by designing and developing an attractive, interactive and easily navigational interface. She will utilize her experience in HTML and CSS to ensure that the site is appealing and reflects the major feature of our application - simplicity. Not only does Lisa identify herself as a developer; she also responds to the titles of baker, dog hugger, and adequate guitar player.
 
-**Aaron Kaplowitz** - Implementation - Server Side Backend(Full Stack)   
+**Aaron Kaplowitz** - Under Construction
 
-**Tyler Zentz** - Timeline - Full Stack Front End.
+**Tyler Zentz** - Under Construction
 
-**Ben Danzig** - Preliminary Research - Full Stack Back End. 
+**Ben Danzig** - Under Construction
