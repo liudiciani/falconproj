@@ -87,9 +87,9 @@ app.get('/about', (req, res) => {
   });
 });
 
-app.get('/team/jdoe', (req, res) => {
-  // TODO
-  var result = team.one('jdoe');
+app.get('/team', (req, res) => {
+
+  var result = team.all();
   if (!result.success) {
     notFound404(req, res);
   } else {
