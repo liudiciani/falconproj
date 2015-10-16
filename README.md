@@ -14,7 +14,7 @@ Essentially we're a team of full stack web engineers.
 
 **Lisa Iudiciani** - Lisa is currently a computer science student with a focus in software engineering  at UMass Amherst. She will exercise her passion for the User Interface/User Experience fields by designing and developing an attractive, interactive and easily navigational interface. She will utilize her experience in HTML and CSS to ensure that the site is appealing and reflects the major feature of our application - simplicity. Not only does Lisa identify herself as a developer; she also responds to the titles of baker, dog hugger, and adequate guitar player.
 
-**Aaron Kaplowitz** - Under Construction
+**Aaron Kaplowitz** - Aaron is a UMass CS student from eastern Massachusetts.  He will be contributing to the entire stack for foundit, but will focus on the backend and leverage the communication between the UI and the database.  He loves food, bowling, theater, and short walks on long beaches.
 
 **Tyler Zentz** - Under Construction
 
