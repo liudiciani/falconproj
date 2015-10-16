@@ -80,6 +80,12 @@ app.get('/', (req, res) => {
   }
 });
 
+app.get('/about', (req, res) => {
+  res.render('about', {
+    pageTestScript: '/qa/tests-team.js'
+  });
+});
+
 app.get('/team/jdoe', (req, res) => {
   // TODO
   var result = team.one('jdoe');
