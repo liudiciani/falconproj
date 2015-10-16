@@ -13,3 +13,4 @@ git rm --cached
 *.tar
 *.zip
 .~*
+.idea/
