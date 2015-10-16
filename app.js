@@ -89,15 +89,31 @@ app.get('/about', (req, res) => {
 
 app.get('/team', (req, res) => {
 
+  if(req.query !== {}) {
+  var result = team.one(req.query.user)
+  if (!result.success){
+    notFound404(req, res);
+  } else {
+    res.render('team', {
+      members: result.data,
+    pageTestScript: 'qa/tests-team.js'
+    });
+  }
+}
+
+else {
   var result = team.all();
   if (!result.success) {
     notFound404(req, res);
   } else {
+    console.log(req.query);
     res.render('team', {
       members: result.data,
       pageTestScript: '/qa/tests-team.js'
     });
   }
+}
+
 });
 
 //////////////////////////////////////////////////////////////////////
