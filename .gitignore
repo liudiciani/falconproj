@@ -14,3 +14,4 @@ git rm --cached
 *.zip
 .~*
 .idea/
+node_modules
