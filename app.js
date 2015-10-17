@@ -89,9 +89,23 @@ app.get('/about', (req, res) => {
 
 app.get('/team', (req, res) => {
 
-  if(req.query !== {}) {
+  var query = req.query;
+
+
+/*
+ * Test to see if the path includes a querystring:
+ *  'query' is an OBJECT.  If it has no keys,
+ *  it is the EMPTY OBJECT, thus there is NO
+ *  querystring.
+ *
+ *  If a querystring exists, it will be ?user=...
+ *  Look up the user accordingly and display their page.
+ */
+  if(Object.keys(query).length !== 0) {
   var result = team.one(req.query.user)
+    console.log("booty");
   if (!result.success){
+    console.log("Where we shouldn't be!");
     notFound404(req, res);
   } else {
     res.render('team', {
@@ -100,13 +114,22 @@ app.get('/team', (req, res) => {
     });
   }
 }
-
+/*
+ * If there is NO querystring,
+ * print out the info for all
+ * users.
+ *
+ * Should we encounter an error getting
+ * all the info, throw a 404.
+ */
 else {
+
   var result = team.all();
+  console.log("hi");
   if (!result.success) {
     notFound404(req, res);
   } else {
-    console.log(req.query);
+    ;
     res.render('team', {
       members: result.data,
       pageTestScript: '/qa/tests-team.js'
