@@ -103,9 +103,7 @@ app.get('/team', (req, res) => {
  */
   if(Object.keys(query).length !== 0) {
   var result = team.one(req.query.user)
-    console.log("booty");
   if (!result.success){
-    console.log("Where we shouldn't be!");
     notFound404(req, res);
   } else {
     res.render('team', {
@@ -125,7 +123,6 @@ app.get('/team', (req, res) => {
 else {
 
   var result = team.all();
-  console.log("hi");
   if (!result.success) {
     notFound404(req, res);
   } else {
