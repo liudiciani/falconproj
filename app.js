@@ -68,13 +68,11 @@ app.use(testmw);
 var team = require('./lib/team.js');
 
 app.get('/', (req, res) => {
-  // TODO: Change root view.
-  // Change to something other than default team view.
   var result = team.all();
   if (!result.success) {
     notFound404(req, res);
   } else {
-    res.render('team', {
+    res.render('splash', {
       members: result.data,
       pageTestScript: '/qa/tests-team.js'
     });
