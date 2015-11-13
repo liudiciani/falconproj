@@ -1,11 +1,13 @@
 # FoundIt
 #UMass CS326 Falcon Team's Semester Project
 
-LALALALBRANCH
+##Overview
 
 This repository is for Falcon teammembers to commit code changes for our semester project.
 
-##Unique ID Finding Web Application!
+###Unique ID Finding Web Application!
+
+
 
 *Team Roles:*
 Essentially we're a team of full stack web engineers.
@@ -21,3 +23,13 @@ Essentially we're a team of full stack web engineers.
 **Tyler Zentz** - Tyler is currently in his third year at the University of Massachusetts Amherst, pursuing a degree in Computer Science.  With his new found knowledge of JavaScript he will help his team in all aspects of the creation of “foundit!”, while focusing primarily on frontend development. In his free time, Tyler enjoys exercising at the gym, playing pickup soccer, and strumming his acoustic guitar.
 
 **Ben Danzig** - Ben is a Junior Computer Science student at UMass Amherst. He has experience with software engineering at his last internship in the Summer of 2015, and his language of choice is Java. He is responsible for preliminary research for Team Falcon, such as keeping up with market competition for “FoundIt!” and making sure that the product provides a unique service and has a competitive edge. In his free time, Ben likes to stay active by playing Basketball, Volleyball, and going hiking whenever possible.
+
+
+##How To Run
+
+1. Ensure that Node is installed on your machine.
+2. Clone this repository to a destination folder of your choice
+  - The folder will named **'falconproj'**. *cd* into that folder.
+3. Run *node app.js* to start the server. 
+4. Open your browser of choice and navigate to *localhost:3000*.
+5. Welcome to FoundIt!
