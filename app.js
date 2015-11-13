@@ -68,13 +68,11 @@ app.use(testmw);
 var team = require('./lib/team.js');
 
 app.get('/', (req, res) => {
-  // TODO: Change root view.
-  // Change to something other than default team view.
   var result = team.all();
   if (!result.success) {
     notFound404(req, res);
   } else {
-    res.render('team', {
+    res.render('splash', {
       members: result.data,
       pageTestScript: '/qa/tests-team.js'
     });
@@ -83,7 +81,36 @@ app.get('/', (req, res) => {
 
 app.get('/about', (req, res) => {
   res.render('about', {
-    pageTestScript: '/qa/tests-team.js'
+  });
+});
+
+app.get('/signup', (req, res) => {
+  res.render('signup', {
+  });
+});
+
+app.get('/login', (req, res) => {
+  res.render('login', {
+  });
+});
+
+app.get('/a-user-id', (req, res) => {
+  res.render('a-user-id', {
+  });
+});
+
+app.get('/userhome', (req, res) => {
+  res.render('userhome', {
+  });
+});
+
+app.get('/admin', (req, res) => {
+  res.render('admin', {
+  });
+});
+
+app.get('/contact', (req, res) => {
+  res.render('contact', {
   });
 });
 
