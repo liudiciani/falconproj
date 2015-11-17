@@ -18,6 +18,7 @@ var app = express();
 // 'port' to a port number. The port number will either be what you
 // set for PORT as an environment variable (google this if you do not
 // know what an evironment variable is) or port 3000.
+
 app.set('port', process.env.PORT || 3000);
 
 // This does the setup for handlebars. It first creates a new
@@ -62,6 +63,46 @@ function testmw(req, res, next) {
 // This adds our testing middleware to the express app.
 app.use(testmw);
 
+///////////////////////////////////////////////////////////////////////
+///// Flash Setup ////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+// Require flash library.
+var flash      = require('connect-flash');
+
+// Flash Support.
+app.use(flash());
+
+//////////////////////////////////////////////////////////////////////
+//// Session Setup ///////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+// Require session library.
+var session    = require('express-session');
+
+// Session Support:
+app.use(session({
+  secret: 'octocat',
+  // Both of the options below are deprecated, but should be false
+  // until removed from the library - sometimes, the reality of
+  // libraries can be rather annoying!
+  saveUninitialized: false, // does not save uninitialized session.
+  resave: false             // does not save session if not modified.
+}));
+
+
+//////////////////////////////////////////////////////////////////////
+///// User Routes ////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+// This adds the external router defined routes to the app.
+// Note: this includes a prefix to each of those routes.
+//       Example: /user/login, /user/logout, ...
+app.use('/user', require('./routes/user-routes'));
+app.use('/admin', require('./routes/admin-routes'));
+
+//WHICH OF THESE DO WE USE??? ^^^^derived from IPA3
+
 //////////////////////////////////////////////////////////////////////
 ///// User Defined Routes ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
@@ -104,6 +145,7 @@ app.get('/userhome', (req, res) => {
   });
 });
 
+//is this where we check if admin???
 app.get('/admin', (req, res) => {
   res.render('admin', {
   });
