@@ -66,6 +66,7 @@ app.use(testmw);
 ///// User Defined Routes ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 var team = require('./lib/team.js');
+var user_profile = require('./lib/user_profile.js');
 
 app.get('/', (req, res) => {
   var result = team.all();
@@ -161,6 +162,17 @@ else {
   }
 }
 
+});
+
+app.get('/:uuid', (req, res) => {
+  var result = user_profile.fetch(req.params.uuid);
+  if(!result.success) {
+    notFound404(req, res);
+  } else {
+    res.render('a-user-id', {
+      message: result.uuid
+    })
+  }
 });
 
 //////////////////////////////////////////////////////////////////////
