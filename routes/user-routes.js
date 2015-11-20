@@ -2,8 +2,8 @@ var express = require('express');
 
 // This gives us access to the user "model".
 var model = require('../lib/user');
-var team = require('./lib/team.js');
-var user_profile = require('./lib/user_profile.js');
+var team = require('../lib/team.js');
+var user_profile = require('../lib/user_profile.js');
 // This creates an express "router" that allows us to separate
 // particular routes from the main application.
 var router = express.Router();
