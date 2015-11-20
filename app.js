@@ -3,6 +3,15 @@
 // (2) handlebars - this provides the handlebars templating framework
 var express    = require('express');
 var handlebars = require('express-handlebars');
+// Require flash library.
+var flash      = require('connect-flash');
+
+// The body parser is used to parse the body of an HTTP request.
+var bodyParser = require('body-parser');
+
+// Require session library.
+var session    = require('express-session');
+
 
 //////////////////////////////////////////////////////////////////////
 ///// Express App Setup //////////////////////////////////////////////
@@ -59,121 +68,38 @@ function testmw(req, res, next) {
   next();
 }
 
+// Body Parser:
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// Session Support:
+app.use(session({
+  secret: 'octocat',
+  // Both of the options below are deprecated, but should be false
+  // until removed from the library - sometimes, the reality of
+  // libraries can be rather annoying!
+  saveUninitialized: false, // does not save uninitialized session.
+  resave: false             // does not save session if not modified.
+}));
 // This adds our testing middleware to the express app.
 app.use(testmw);
-
+app.use(flash());
 //////////////////////////////////////////////////////////////////////
 ///// User Defined Routes ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 var team = require('./lib/team.js');
 var user_profile = require('./lib/user_profile.js');
 
+// This adds the external router defined routes to the app.
+// Note: this includes a prefix to each of those routes.
+//       Example: /user/login, /user/logout, ...
+app.use('/user', require('./routes/user-routes'));
+
 app.get('/', (req, res) => {
-  var result = team.all();
-  if (!result.success) {
-    notFound404(req, res);
-  } else {
-    res.render('splash', {
-      members: result.data,
-      pageTestScript: '/qa/tests-team.js'
-    });
-  }
+  res.redirect('/user/splash');
 });
 
-app.get('/about', (req, res) => {
-  res.render('about', {
-  });
-});
 
-app.get('/signup', (req, res) => {
-  res.render('signup', {
-  });
-});
-
-app.get('/login', (req, res) => {
-  res.render('login', {
-  });
-});
-
-app.get('/a-user-id', (req, res) => {
-  res.render('a-user-id', {
-  });
-});
-
-app.get('/userhome', (req, res) => {
-  res.render('userhome', {
-  });
-});
-
-app.get('/admin', (req, res) => {
-  res.render('admin', {
-  });
-});
-
-app.get('/contact', (req, res) => {
-  res.render('contact', {
-  });
-});
-
-app.get('/team', (req, res) => {
-
-  var query = req.query;
-
-
-/*
- * Test to see if the path includes a querystring:
- *  'query' is an OBJECT.  If it has no keys,
- *  it is the EMPTY OBJECT, thus there is NO
- *  querystring.
- *
- *  If a querystring exists, it will be ?user=...
- *  Look up the user accordingly and display their page.
- */
-  if(Object.keys(query).length !== 0) {
-  var result = team.one(req.query.user)
-  if (!result.success){
-    notFound404(req, res);
-  } else {
-    res.render('team', {
-      members: result.data,
-    pageTestScript: 'qa/tests-team.js'
-    });
-  }
-}
-/*
- * If there is NO querystring,
- * print out the info for all
- * users.
- *
- * Should we encounter an error getting
- * all the info, throw a 404.
- */
-else {
-
-  var result = team.all();
-  if (!result.success) {
-    notFound404(req, res);
-  } else {
-    ;
-    res.render('team', {
-      members: result.data,
-      pageTestScript: '/qa/tests-team.js'
-    });
-  }
-}
-
-});
-
-app.get('/:uuid', (req, res) => {
-  var result = user_profile.fetch(req.params.uuid);
-  if(!result.success) {
-    notFound404(req, res);
-  } else {
-    res.render('a-user-id', {
-      message: result.uuid
-    })
-  }
-});
 
 //////////////////////////////////////////////////////////////////////
 ///// Error Middleware ///////////////////////////////////////////////
