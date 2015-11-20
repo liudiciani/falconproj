@@ -89,9 +89,31 @@ router.get('/userhome', function(req, res) {
 });
 
 router.get('/admin', (req, res) => {
+  // Replace below with your own implementation.
+  var user = req.session.user;
+
+if(!user){
+  req.flash('splash', 'Not logged in');
+  res.redirect('/user/splash');
+}
+else if(user && !online[user.name]){
+  req.flash('login', 'Login Expired');
+  delete req.session.user;
+  res.redirect('/user/login')
+}
+else if(user && online[user.name] && !user.admin){
+  res.redirect('/user/userhome');
+}
+else {
+  // @TODO: We need to have the admin page list out all the users' info. This requires querying the DB for all the users' info.
   res.render('admin', {
-    });
-});
+    title: Admin,
+    fname: user.fname
+  });
+
+}
+}
+);
 
 router.get('/contact', (req, res) => {
   res.render('contact', {
