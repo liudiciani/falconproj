@@ -31,7 +31,6 @@ if (user && online[user.uid]) {
   else{
     res.redirect('/userhome');
   }
-  res.redirect('/user/');
 }
 else {//if user is not logged in, render the splash page
   // Grab any messages being sent to us from redirect:
@@ -61,9 +60,32 @@ router.get('/a-user-id', (req, res) => {
     });
 });
 
-router.get('/userhome', (req, res) => {
-  res.render('userhome', {
-    });
+router.get('/userhome', function(req, res) {
+  // Grab the user session if it exists:
+  var user = req.session.user;
+
+  // If no session, redirect to splash.
+  if (!user) {
+    req.flash('splash', 'Not logged in');
+    res.redirect('/user/splash');
+  }
+  else if (user && !online[user.name]) {
+    req.flash('login', 'Login Expired');
+    delete req.session.user;
+    res.redirect('/user/login')
+  }
+  else {
+    //check if the user is an admin. This will decide whether or not the user home page will have a link to the admin home page
+    var isAdmin = user.admin;
+    // capture the user object or create a default.
+    var message = req.flash('userhome') || 'Welcome back';
+    res.render('userhome', { title   : 'User Home Page',
+      message : message,
+      fname    : user.fname ,
+      isAdmin: isAdmin,
+      name: user.fname+user.lname,
+      email:user.email});
+  }
 });
 
 router.get('/admin', (req, res) => {
@@ -202,28 +224,7 @@ if(!result.success) {
 //});
 //
 //// Renders the main user view.
-//router.get('/main', function(req, res) {
-//  // Grab the user session if it exists:
-//  var user = req.session.user;
-//
-//  // If no session, redirect to login.
-//  if (!user) {
-//    req.flash('login', 'Not logged in');
-//    res.redirect('/user/login');
-//  }
-//  else if (user && !online[user.name]) {
-//    req.flash('login', 'Login Expired');
-//    delete req.session.user;
-//    res.redirect('/user/login')
-//  }
-//  else {
-//    // capture the user object or create a default.
-//    var message = req.flash('main') || 'Login Successful';
-//    res.render('user', { title   : 'User Main',
-//                         message : message,
-//                         name    : user.name });
-//  }
-//});
+
 //
 //// Renders the users that are online.
 //router.get('/online', function(req, res) {
