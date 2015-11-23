@@ -3,7 +3,7 @@
 
 ##Overview
 
-This repository is for Falcon teammembers to commit code changes for our semester project.
+This repository is for Falcon team members to commit code changes for our semester project.
 
 ###Unique ID Finding Web Application!
 
@@ -44,11 +44,11 @@ This repository is for Falcon teammembers to commit code changes for our semeste
 
 *config - Config is used to hide security information about logging into and querying our database.
 
-*body-parser - TODO
+*body-parser - Body parser allows us to send data back and forth between redirects. 
 
-*express-session - TODO.
+*express-session - Enables session support for our web application.
 
-*chance - TODO. (aaron for URL generator)
+*chance - Chance.js is a minimalistic library used for random string generation.
 
 ##Views
 
