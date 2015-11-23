@@ -261,6 +261,10 @@ else {//if the user session exists, user is logged in, and user is an admin.
 router.get('/team', (req, res) => {
 
   var query = req.query;
+  //grab the user session which will be used to determine which links show up
+//on the 'team' page.
+  var user = req.session.user;
+
 
 
 /*
@@ -277,10 +281,28 @@ if(Object.keys(query).length !== 0) {
   if (!result.success){
     notFound404(req, res);
   } else {
+    if(user){//if the user session exists
+      //grab the admin data from the user and check if the user is online.
+      //These values will be passed to the 'team' handlebars and will decide
+      //what links will render on the 'team' page
+      var isAdmin = (user.admin==='yes');
+      var isLoggedIn = online[user.email];
     res.render('team', {
       members: result.data,
-      pageTestScript: 'qa/tests-team.js'
-    });
+      pageTestScript: 'qa/tests-team.js',
+      isAdmin:isAdmin,
+      isLoggedIn:isLoggedIn
+    });}
+    else{
+      //if there is no user session, pass false in for the 'isAdmin'
+      // and 'isLoggedIn' parameters of the 'team' handlebars.
+      res.render('team', {
+        members: result.data,
+        pageTestScript: 'qa/tests-team.js',
+        isAdmin:false,
+        isLoggedIn:false
+      });
+    }
   }
 }
 /*
@@ -297,10 +319,28 @@ else {
   if (!result.success) {
     notFound404(req, res);
   } else {
+    if(user){//if the user session exists
+      //grab the admin data from the user and check if the user is online.
+      //These values will be passed to the 'team' handlebars and will decide
+      //what links will render on the 'team' page
+      var isAdmin = (user.admin==='yes');
+      var isLoggedIn = online[user.email];
     res.render('team', {
       members: result.data,
-      pageTestScript: '/qa/tests-team.js'
-    });
+      pageTestScript: '/qa/tests-team.js',
+      isAdmin:isAdmin,
+      isLoggedIn:isLoggedIn
+    });}
+    else{
+      //if there is no user session, pass false in for the 'isAdmin'
+      // and 'isLoggedIn' parameters of the 'team' handlebars.
+      res.render('team', {
+        members: result.data,
+        pageTestScript: 'qa/tests-team.js',
+        isAdmin:false,
+        isLoggedIn:false
+      });
+    }
   }
 }
 
@@ -312,7 +352,9 @@ if(!result.success) {
   notFound404(req, res);
 } else {
   res.render('a-user-id', {
-    message: result.uuid
+    message: result.uuid,
+    isAdmin:isAdmin,
+    isLoggedIn:isLoggedIn
   })
 }
 });

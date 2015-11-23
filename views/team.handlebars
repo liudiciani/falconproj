@@ -1,13 +1,18 @@
-<a href="/">Home</a>
 
-//IF ADMIN
+
+{{#if isAdmin}}
 <a href="/user/admin/">Admin Home</a>
-<a href="/user/userhome/">User Home</a>
-<a href="/user/logout">Logout</a>
+{{/if}}
 
-//IF USER
+{{#if isLoggedIn}}
 <a href="/user/userhome/">User Home</a>
 <a href="/user/logout">Logout</a>
+{{else}}
+    <a href="/">Home</a>
+{{/if}}
+
+<a href="/user/about/">About</a>
+
 
 <h1>Meet the Team</h1>
 
