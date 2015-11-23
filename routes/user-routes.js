@@ -149,8 +149,36 @@ router.get('/logout', function(req, res) {
 });
 
 router.get('/about', (req, res) => {
-  res.render('about', {
+
+  var user = req.session.user;
+  var isAdmin;
+  var isLoggedIn;
+
+  //If not a user and not logged in, render about page with both
+  //values set to false
+  if(!user){
+    res.render('about', {
+      isLoggedIn: false,
+      isAdmin: false
     });
+  }
+
+  //If session has expired, render about page with both values
+  //set to false
+  if(user && !online[user.email]){
+    res.render('about', {
+      isLoggedIn: false,
+      isAdmin: false
+    });
+  }
+
+  //If user is online, check if admin and show links accordingly
+  if(user && online[user.email]){
+    res.render('about', {
+      isLoggedIn: true,
+      isAdmin: (user.admin == 'yes')
+    });
+  }
 });
 
 
@@ -219,7 +247,7 @@ router.get('/userhome', function(req, res) {
       message : message,
       fname    : user.fname ,
       admin: user.admin,
-      name: user.fname + user.lname,
+      name: user.fname+user.lname,
       email:user.email,
       uurl: user.uurl});
 
