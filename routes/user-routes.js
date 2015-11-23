@@ -91,32 +91,53 @@ router.get('/userhome', function(req, res) {
 });
 
 router.get('/admin', (req, res) => {
-  // Replace below with your own implementation.
+  //grab the user session
   var user = req.session.user;
 
-if(!user){
+if (!user) {
   req.flash('splash', 'Not logged in');
   res.redirect('/user/splash');
 }
-else if(user && !online[user.name]){
+else if (user && !online[user.name]) {
   req.flash('login', 'Login Expired');
   delete req.session.user;
   res.redirect('/user/login')
 }
-else if(user && online[user.name] && !user.admin){
+else if (user && online[user.name] && !user.admin) {
   res.redirect('/user/userhome');
 }
-else {
-  var message = req.flash('admin') || 'Welcome back';
-  res.render('admin', {
-    message:message,
-    title: Admin,
-    fname: user.fname
+else {//if the user session exists, user is logged in, and user is an admin.
+  model.list(function (error, userList) {
+    /*
+     If there is an error in querying the database for all users' info, capture
+     that error message and render the admin home page with no user data and the
+     appropriate error message.
+     */
+    if (error) {
+      var message = error;
+      res.render('admin', {
+        title: 'Admin Home',
+        message: message,
+        fname: user.fname
+      });
+    }
+    else {
+      /*
+       If there wasn't an error in querying the database for all users' info, we render the
+       admin home page with all the data from 'userList'.
+       */
+      var message = req.flash('admin') || 'Welcome back';
+      res.render('admin', {
+        message: message,
+        title: 'Admin Home',
+        fname: user.fname,
+        users: userList
+      });
+    }
   });
+}
+});
 
-}
-}
-);
 
 router.get('/contact', (req, res) => {
   res.render('contact', {
