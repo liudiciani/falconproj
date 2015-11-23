@@ -164,7 +164,8 @@ router.get('/userhome', function(req, res) {
       fname    : user.fname ,
       isAdmin: isAdmin,
       name: user.fname+user.lname,
-      email:user.email});
+      email:user.email,
+      uurl: user.uurl});
   }
 });
 
