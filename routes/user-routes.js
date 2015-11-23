@@ -26,9 +26,11 @@ router.get('/splash', (req, res) => {
 if (user && online[user.uid]) {
   //check if user is an admin. If so, redirect to AdminHome, if not redirect to User Home
   if(user.admin){
+    req.flash('admin','You are now logged in as an admin.');
     res.redirect('/admin');
   }
   else{
+    req.flash('userhome','Welcome to your user home.');
     res.redirect('/userhome');
   }
 }
@@ -105,8 +107,9 @@ else if(user && online[user.name] && !user.admin){
   res.redirect('/user/userhome');
 }
 else {
-  // @TODO: We need to have the admin page list out all the users' info. This requires querying the DB for all the users' info.
+  var message = req.flash('admin') || 'Welcome back';
   res.render('admin', {
+    message:message,
     title: Admin,
     fname: user.fname
   });
