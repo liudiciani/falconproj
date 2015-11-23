@@ -1,12 +1,17 @@
 <!--<img src="/img/Admin.png" alt="Admin page mockup image" />--!>
 
+<a href="/user/userhome/">User Home</a>
+<a href="/user/logout/">Log Out</a>
+<a href="/user/about">About</a>
+<a href="/user/team">Team</a>
+
 
 <h1>{{title}}</h1>
 
-<h1>Hello, {{user}}!</h1>
+<h1>Hello, {{fname}}!</h1>
+<div>{{message}}</div>
 
 <p>List of users:</p>
-<div>{{message}}</div>
 <table>
   <tr>
     <td>
@@ -34,7 +39,7 @@
       phone:
     </td>
   </tr>
-  {{users}}
+  {{#each users}}
     <tr>
       <td>
         {{uid}}
@@ -49,10 +54,10 @@
         {{email}}
       </td>
       <td>
-        {{pass}}
+        {{password}}
       </td>
       <td>
-        {{distinct_url}}
+        {{uurl}}
       <td>
         {{admin}}
       </td>
@@ -60,6 +65,7 @@
         {{phone}}
       </td>
     </tr>
+    {{/each}}
 </table>
 
 

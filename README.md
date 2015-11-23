@@ -7,10 +7,7 @@ This repository is for Falcon teammembers to commit code changes for our semeste
 
 ###Unique ID Finding Web Application!
 
-
-
 *Team Roles:*
-Essentially we're a team of full stack web engineers.
 
 **Andrew Raleigh** -  Originally from New Jersey, Andrew is a computer science student focusing on data science and search engines at UMass Amherst. He contributes towards backend database engineering. When he’s not exploring data science, Andrew can be found snowboarding mountains all over New England and training at the rec center. He is also an avid Manchester United and soccer fan.
 
@@ -30,6 +27,46 @@ Essentially we're a team of full stack web engineers.
 1. Ensure that Node is installed on your machine.
 2. Clone this repository to a destination folder of your choice
   - The folder will named **'falconproj'**. *cd* into that folder.
-3. Run *node app.js* to start the server. 
+3. Visit private documentation for setting up the config directory and the default.json file
+4. Run *node app.js* to start the server. 
 4. Open your browser of choice and navigate to *localhost:3000*.
 5. Welcome to FoundIt!
+
+##Libraries
+
+*connect-flash - Used to transfer messages across redirects.
+
+*express - express.Router(); is used to handle all the routing in our application. This happens in the “user-routes.js” file and routes are handled via either the “router.get()” or “router.post()” methods.
+
+*postgres/pg - In “user.js”, pg is used to connect to the database via the call to “pg.connect()”. Once connected to the database, we use pg to query the database via “client.query()”.
+
+*express-handlebars - used to generate views.
+
+*config - Config is used to hide security information about logging into and querying our database.
+
+*body-parser - TODO
+
+*express-session - TODO.
+
+*chance - TODO. (aaron for URL generator)
+
+##Views
+
+TODO: Summary of each of the views and their purpose.
+
+##Statefulness
+
+We use session states to keep track of whether or not a user is an admin, and if the user is logged in. User session is initialized upon running the “/auth” route in user-routes.js when logging in. The user object is queried from the database using the “lookup” function in “user.js”. Once a user is logged in, they are added to the “online” array in “online.js”.
+
+##Persistence
+
+FoundIt uses a relational PostgreSQL database hosted by ElephantSQL. The primary table of our application is depicted below, with a single mock data user.
+
+| uid | fname | lname | email | password | uurl | admin | phone |
+| --- | ----- | ----- | ----- | -------- | ---- | ----- | ----- |
+|1 | John | Doe | jdoe@umass.edu | falcon2 | 56qp2 | no | (415)-222-2222 |
+
+The database keeps track of all users. It allows for users to log in and view their profile pages. The users table also keeps track of who is an admin, and each users individual unique url. If a user is an admin, he or she can view a dashboard page mentioned above. The database is queried each time a unique URL is passed as a path in an attempt to find a user whose items must have been lost.
+
+##Future Functionality
+In our next release, our team is excited to add: automated emails if an item is found and additional admin functionality. 

@@ -1,40 +1,42 @@
 <!--<img src="/img/UserHome.png" alt="User homepage" />--!>
 
+
+        <a href="/user/about/">About</a>
+ 		<a href="/user/team/">Team</a>
+ 		<a href="/user/a-user-id/">Profile</a>
+ 		{{#if isAdmin}}
+ 		<a href="/user/admin/">Admin Home</a>
+        {{/if}}
+        <a href="/user/logout/">Log Out</a>
+
 <h1>{{title}}</h1>
 
-<h1>Hello, {{user}}!</h1>
-
+<h1>Hello, {{fname}}!</h1>
+<div>{{message}}</div>
 
 <p>Your info:</p>
-<div>{{message}}</div>
 <table>
   <tr>
     <td>
-      User ID
+      Unique User URL
     </td>
     <td>
       Name
     </td>
     <td>
-      Password
-    </td>
-    <td>
-      Admin
+      Email
     </td>
   </tr>
   {{user}}
     <tr>
       <td>
-        {{uid}}
+        {{uurl}}
       </td>
       <td>
         {{name}}
       </td>
       <td>
-        {{pass}}
-      </td>
-      <td>
-        {{admin}}
+        {{email}}
       </td>
     </tr>
 </table>
