@@ -7,10 +7,7 @@ This repository is for Falcon teammembers to commit code changes for our semeste
 
 ###Unique ID Finding Web Application!
 
-
-
 *Team Roles:*
-Essentially we're a team of full stack web engineers.
 
 **Andrew Raleigh** -  Originally from New Jersey, Andrew is a computer science student focusing on data science and search engines at UMass Amherst. He contributes towards backend database engineering. When he’s not exploring data science, Andrew can be found snowboarding mountains all over New England and training at the rec center. He is also an avid Manchester United and soccer fan.
 
@@ -30,7 +27,8 @@ Essentially we're a team of full stack web engineers.
 1. Ensure that Node is installed on your machine.
 2. Clone this repository to a destination folder of your choice
   - The folder will named **'falconproj'**. *cd* into that folder.
-3. Run *node app.js* to start the server. 
+3. Visit private documentation for setting up the config directory and the default.json file
+4. Run *node app.js* to start the server. 
 4. Open your browser of choice and navigate to *localhost:3000*.
 5. Welcome to FoundIt!
 
@@ -58,4 +56,8 @@ We use session states to keep track of whether or not a user is an admin, and if
 
 ##Persistence
 
-TODO: detailed writeup of how our app uses a database. Include a figure that shows the important data sets that your database maintains. 
+FoundIt uses a relational PostgreSQL database hosted by ElephantSQL. The primary table of our application is depicted below, with a single mock data user.
+
+| uid | fname | lname | email | password | uurl | admin | phone |
+| --- | ----- | ----- | ----- | -------- | ---- | ----- | ----- |
+|1 | John | Doe | jdoe@umass.edu | falcon2 | 56qp2 | no | (415)-222-2222 |g
