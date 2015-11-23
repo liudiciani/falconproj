@@ -26,11 +26,11 @@ if (user && online[user.uid]) {
   //check if user is an admin. If so, redirect to AdminHome, if not redirect to User Home
   if(user.admin){
     req.flash('admin','You are now logged in as an admin.');
-    res.redirect('/admin');
+    res.redirect('/user/admin');
   }
   else{
     req.flash('userhome','Welcome to your user home.');
-    res.redirect('/userhome');
+    res.redirect('/user/userhome');
   }
 }
 else {//if user is not logged in, render the splash page
@@ -84,10 +84,10 @@ if (user && online[user.email]) {
 }
 else {
   // Pull the values from the form:
-  var name = req.body.name;
+  var email = req.body.email;
   var pass = req.body.pass;
 
-  if (!name || !pass) {
+  if (!email || !pass) {
     req.flash('login', 'did not provide the proper credentials');
     res.redirect('/user/login');
   }
