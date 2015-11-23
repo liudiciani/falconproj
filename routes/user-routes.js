@@ -18,7 +18,6 @@ depending on whether or not the user is an admin. If user is not logged in, then
 redirect to the splash page.
  */
 router.get('/splash', (req, res) => {
-  // @TODO: Do we need to grab the user from the db?
   // Grab the session if the user is logged in.
   var user = req.session.user;
 
@@ -42,6 +41,89 @@ else {//if user is not logged in, render the splash page
 }
 });
 
+// Provides a login view
+router.get('/login', (req, res) => {
+  // Grab the session if the user is logged in.
+  var user = req.session.user;
+
+// if session exists and user is online, then check if user is an admin.
+//if user is an admin, redirect to admin home, else redirect to userhome.
+if (user && online[user.email]) {
+  if(user.admin){
+    res.redirect('/user/admin');
+  }
+  else {
+    res.redirect('/user/userhome');
+  }
+}
+else {
+  // Grab any messages being sent to us from redirect:
+  var message = req.flash('login') || '';
+  res.render('login', {
+    title: 'User Login',
+    message: message
+  });
+}
+
+});
+
+// Performs **basic** user authentication.
+router.post('/auth', (req, res) => {
+  // Grab the session if the user is logged in.
+  var user = req.session.user;
+
+// if session exists and user is online, then check if user is an admin.
+//if user is an admin, redirect to admin home, else redirect to userhome.
+if (user && online[user.email]) {
+  if(user.admin){
+    res.redirect('/user/admin');
+  }
+  else {
+    res.redirect('/user/userhome');
+  }
+}
+else {
+  // Pull the values from the form:
+  var name = req.body.name;
+  var pass = req.body.pass;
+
+  if (!name || !pass) {
+    req.flash('login', 'did not provide the proper credentials');
+    res.redirect('/user/login');
+  }
+  else {
+    model.lookup(email, pass, function(error, user) {
+      if (error) {
+        // Pass a message to login:
+        req.flash('login', error);
+        res.redirect('/user/login');
+      }
+      else {
+        // add the user to the map of online users:
+        online[user.email] = user;
+
+        // create a session variable to represent stateful connection
+        req.session.user = user;
+        //now check if the user is an admin, and depending on that, redirect to
+        //either user home or admin home.
+        if(user.admin){
+          // Pass a message to admin home:
+          req.flash('admin', 'authentication successful');
+          res.redirect('/user/admin');
+        }
+        else{
+          // Pass a message to user home:
+          req.flash('userhome', 'authentication successful');
+          res.redirect('/user/userhome');
+        }
+
+
+      }
+    });
+  }
+}
+});
+
 router.get('/about', (req, res) => {
   res.render('about', {
     });
@@ -52,10 +134,6 @@ router.get('/signup', (req, res) => {
     });
 });
 
-router.get('/login', (req, res) => {
-  res.render('login', {
-    });
-});
 
 router.get('/a-user-id', (req, res) => {
   res.render('a-user-id', {
@@ -71,7 +149,7 @@ router.get('/userhome', function(req, res) {
     req.flash('splash', 'Not logged in');
     res.redirect('/user/splash');
   }
-  else if (user && !online[user.name]) {
+  else if (user && !online[user.email]) {
     req.flash('login', 'Login Expired');
     delete req.session.user;
     res.redirect('/user/login')
@@ -98,12 +176,12 @@ if (!user) {
   req.flash('splash', 'Not logged in');
   res.redirect('/user/splash');
 }
-else if (user && !online[user.name]) {
+else if (user && !online[user.email]) {
   req.flash('login', 'Login Expired');
   delete req.session.user;
   res.redirect('/user/login')
 }
-else if (user && online[user.name] && !user.admin) {
+else if (user && online[user.email] && !user.admin) {
   res.redirect('/user/userhome');
 }
 else {//if the user session exists, user is logged in, and user is an admin.
