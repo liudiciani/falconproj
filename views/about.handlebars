@@ -1,17 +1,15 @@
-<a href="/">Home</a>
-
-//IF ADMIN
 {{#if isAdmin}}
-<a href="/user/admin/">Admin Home</a>
-<a href="/user/userhome/">User Home</a>
-<a href="/user/logout/">Logout</a>
+    <a href="/user/admin/">Admin Home</a>
 {{/if}}
 
-//IF USER
-{{#if !isAdmin}}
-<a href="/user/userhome/">User Home</a>
-<a href="/user/logout/">Logout</a>
+{{#if isLoggedIn}}
+    <a href="/user/userhome/">User Home</a>
+    <a href="/user/logout">Logout</a>
+{{else}}
+    <a href="/">Home</a>
 {{/if}}
+
+<a href="/user/team/">Team</a>
 
 
 <h2>The free and easy solution to all lost items! </h2>

@@ -148,25 +148,34 @@ router.get('/logout', function(req, res) {
 });
 
 router.get('/about', (req, res) => {
+
   var user = req.session.user;
+  var isAdmin;
+  var isLoggedIn;
 
-
-  //if not a user, or offline user, render default about page
-  if((!user) || (user && !online[user])){
-  res.render('about', {
-    });
-    }
-  //if user and online, render modified about page
-  else{
-    var isAdmin;
-    if(user.admin === 'yes'){
-     isAdmin = true;
-       }
-    else{
-      isAdmin = false;
-    }
+  //If not a user and not logged in, render about page with both
+  //values set to false
+  if(!user){
     res.render('about', {
-      isAdmin: isAdmin
+      isLoggedIn: false,
+      isAdmin: false
+    });
+  }
+
+  //If session has expired, render about page with both values
+  //set to false
+  if(user && !online[user.email]){
+    res.render('about', {
+      isLoggedIn: false,
+      isAdmin: false
+    });
+  }
+
+  //If user is online, check if admin and show links accordingly
+  if(user && online[user.email]){
+    res.render('about', {
+      isLoggedIn: true,
+      isAdmin: (user.admin == 'yes')
     });
   }
 });
