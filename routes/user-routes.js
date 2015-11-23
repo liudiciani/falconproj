@@ -148,8 +148,27 @@ router.get('/logout', function(req, res) {
 });
 
 router.get('/about', (req, res) => {
+  var user = req.session.user;
+
+
+  //if not a user, or offline user, render default about page
+  if((!user) || (user && !online[user])){
   res.render('about', {
     });
+    }
+  //if user and online, render modified about page
+  else{
+    var isAdmin;
+    if(user.admin === 'yes'){
+     isAdmin = true;
+       }
+    else{
+      isAdmin = false;
+    }
+    res.render('about', {
+      isAdmin: isAdmin
+    });
+  }
 });
 
 router.get('/signup', (req, res) => {
@@ -183,7 +202,7 @@ router.get('/userhome', function(req, res) {
       message : message,
       fname    : user.fname ,
       admin: user.admin,
-      name: user.fname + user.lname,
+      name: user.fname+user.lname,
       email:user.email,
       uurl: user.uurl});
 
