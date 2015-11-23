@@ -106,6 +106,7 @@ else {
         req.session.user = user;
         //now check if the user is an admin, and depending on that, redirect to
         //either user home or admin home.
+        // Note from andrew: all users will return true to user.admin, you need to check to see if it is 'yes' or 'no'.
         if(user.admin){
           // Pass a message to admin home:
           req.flash('admin', 'authentication successful');
