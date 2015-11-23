@@ -24,7 +24,7 @@ router.get('/splash', (req, res) => {
 //if session and user is online:
 if (user && online[user.uid]) {
   //check if user is an admin. If so, redirect to AdminHome, if not redirect to User Home
-  if(user.admin){
+  if(user.admin === 'yes'){
     req.flash('admin','You are now logged in as an admin.');
     res.redirect('/user/admin');
   }
@@ -49,7 +49,7 @@ router.get('/login', (req, res) => {
 // if session exists and user is online, then check if user is an admin.
 //if user is an admin, redirect to admin home, else redirect to userhome.
 if (user && online[user.email]) {
-  if(user.admin){
+  if(user.admin === 'yes'){
     res.redirect('/user/admin');
   }
   else {
@@ -75,7 +75,7 @@ router.post('/auth', (req, res) => {
 // if session exists and user is online, then check if user is an admin.
 //if user is an admin, redirect to admin home, else redirect to userhome.
 if (user && online[user.email]) {
-  if(user.admin){
+  if(user.admin === 'yes'){
     res.redirect('/user/admin');
   }
   else {
@@ -107,7 +107,7 @@ else {
         //now check if the user is an admin, and depending on that, redirect to
         //either user home or admin home.
         // Note from andrew: all users will return true to user.admin, you need to check to see if it is 'yes' or 'no'.
-        if(user.admin){
+        if(user.admin === 'yes'){
           // Pass a message to admin home:
           req.flash('admin', 'authentication successful');
           res.redirect('/user/admin');
@@ -178,17 +178,15 @@ router.get('/userhome', function(req, res) {
     res.redirect('/user/login')
   }
   else {
-    //check if the user is an admin. This will decide whether or not the user home page will have a link to the admin home page
-    var isAdmin = user.admin;
-    // capture the user object or create a default.
     var message = req.flash('userhome') || 'Welcome back';
     res.render('userhome', { title   : 'User Home Page',
       message : message,
       fname    : user.fname ,
-      isAdmin: isAdmin,
-      name: user.fname+user.lname,
+      admin: user.admin,
+      name: user.fname + user.lname,
       email:user.email,
       uurl: user.uurl});
+
   }
 });
 
@@ -205,7 +203,7 @@ else if (user && !online[user.email]) {
   delete req.session.user;
   res.redirect('/user/login')
 }
-else if (user && online[user.email] && !user.admin) {
+else if (user && online[user.email] && user.admin === 'no') {
   res.redirect('/user/userhome');
 }
 else {//if the user session exists, user is logged in, and user is an admin.
