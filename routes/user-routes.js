@@ -4,6 +4,7 @@ var express = require('express');
 var model = require('../lib/user');
 var team = require('../lib/team.js');
 var user_profile = require('../lib/user_profile.js');
+var url_generator = require('../lib/url_generator.js');
 // This creates an express "router" that allows us to separate
 // particular routes from the main application.
 var router = express.Router();
@@ -152,8 +153,43 @@ router.get('/about', (req, res) => {
     });
 });
 
+
+//This is the route that handles adding a new user to the database
+//when they sign up for a new account.
+router.post('/add', (req, res) => {
+  //grab the input values from the sign up form.
+  var fname = req.body.fname;
+  var lname = req.body.lname;
+  var phone = req.body.phone;
+  var email = req.body.email;
+  var password = req.body.password;
+//default new users to not be admins
+  var admin = 'no';
+
+if(!fname || !password || !lname || !phone || !email ){
+  req.flash('signup','did not complete the information');
+  res.redirect('/user/signup');
+}
+else{
+  var uurl = url_generator.generateURL();
+  model.add({fname,lname,phone,email,password,uurl,admin},function(error,newUser){
+    if(error){
+      req.flash('signup',error);
+      res.redirect('/user/signup');
+    }
+    else{
+      req.flash('login','User Addition Successful!');
+      res.redirect('/user/login');
+    }
+  });
+}
+});
+
 router.get('/signup', (req, res) => {
+  var message = req.flash('signup') || 'Welcome to the Sign Up Page.';
   res.render('signup', {
+    title: "Sign Up Page",
+    message:message
     });
 });
 
