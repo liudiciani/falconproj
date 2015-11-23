@@ -42,9 +42,13 @@ This repository is for Falcon teammembers to commit code changes for our semeste
 
 *express-handlebars - used to generate views.
 
+*config - Config is used to hide security information about logging into and querying our database.
+
 *body-parser - TODO
 
 *express-session - TODO.
+
+*chance - TODO. (aaron for URL generator)
 
 ##Views
 
@@ -60,4 +64,7 @@ FoundIt uses a relational PostgreSQL database hosted by ElephantSQL. The primary
 
 | uid | fname | lname | email | password | uurl | admin | phone |
 | --- | ----- | ----- | ----- | -------- | ---- | ----- | ----- |
-|1 | John | Doe | jdoe@umass.edu | falcon2 | 56qp2 | no | (415)-222-2222 |g
+|1 | John | Doe | jdoe@umass.edu | falcon2 | 56qp2 | no | (415)-222-2222 |
+
+The database keeps track of all users. It allows for users to log in and view their profile pages. The users table also keeps track of who is an admin, and each users individual unique url. If a user is an admin, he or she can view a dashboard page mentioned above. The database is queried each time a unique URL is passed as a path in an attempt to find a user whose items must have been lost.
+
