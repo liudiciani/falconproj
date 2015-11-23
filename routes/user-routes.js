@@ -124,6 +124,28 @@ else {
 }
 });
 
+// Performs logout functionality - it does nothing!
+router.get('/logout', function(req, res) {
+  // Grab the user session if logged in.
+  var user = req.session.user;
+
+  // If the client has a session, but is not online it
+  // could mean that the server restarted, so we require
+  // a subsequent login.
+  if (user && !online[user.email]) {
+    delete req.session.user;
+  }
+  // Otherwise, we delete both.
+  else if (user) {
+    delete online[user.email];
+    delete req.session.user;
+  }
+
+  // Redirect to splash page regardless.
+  req.flash('splash','Successful log out.')
+  res.redirect('/user/splash');
+});
+
 router.get('/about', (req, res) => {
   res.render('about', {
     });
@@ -218,11 +240,6 @@ else {//if the user session exists, user is logged in, and user is an admin.
 });
 
 
-router.get('/contact', (req, res) => {
-  res.render('contact', {
-    });
-});
-
 router.get('/team', (req, res) => {
 
   var query = req.query;
@@ -262,7 +279,6 @@ else {
   if (!result.success) {
     notFound404(req, res);
   } else {
-    ;
     res.render('team', {
       members: result.data,
       pageTestScript: '/qa/tests-team.js'
@@ -327,26 +343,7 @@ if(!result.success) {
 //  }
 //});
 //
-//// Performs logout functionality - it does nothing!
-//router.get('/logout', function(req, res) {
-//  // Grab the user session if logged in.
-//  var user = req.session.user;
-//
-//  // If the client has a session, but is not online it
-//  // could mean that the server restarted, so we require
-//  // a subsequent login.
-//  if (user && !online[user.name]) {
-//    delete req.session.user;
-//  }
-//  // Otherwise, we delete both.
-//  else if (user) {
-//    delete online[user.name];
-//    delete req.session.user;
-//  }
-//
-//  // Redirect to login regardless.
-//  res.redirect('/user/login');
-//});
+
 //
 //// Renders the main user view.
 
