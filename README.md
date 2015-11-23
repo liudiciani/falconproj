@@ -33,3 +33,29 @@ Essentially we're a team of full stack web engineers.
 3. Run *node app.js* to start the server. 
 4. Open your browser of choice and navigate to *localhost:3000*.
 5. Welcome to FoundIt!
+
+##Libraries
+
+*connect-flash - Used to transfer messages across redirects.
+
+*express - express.Router(); is used to handle all the routing in our application. This happens in the “user-routes.js” file and routes are handled via either the “router.get()” or “router.post()” methods.
+
+*postgres/pg - In “user.js”, pg is used to connect to the database via the call to “pg.connect()”. Once connected to the database, we use pg to query the database via “client.query()”.
+
+*express-handlebars - used to generate views.
+
+*body-parser - TODO
+
+*express-session - TODO.
+
+##Views
+
+TODO: Summary of each of the views and their purpose.
+
+##Statefulness
+
+We use session states to keep track of whether or not a user is an admin, and if the user is logged in. User session is initialized upon running the “/auth” route in user-routes.js when logging in. The user object is queried from the database using the “lookup” function in “user.js”. Once a user is logged in, they are added to the “online” array in “online.js”.
+
+##Persistence
+
+TODO: detailed writeup of how our app uses a database. Include a figure that shows the important data sets that your database maintains. 
