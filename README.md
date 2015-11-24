@@ -88,3 +88,6 @@ The database keeps track of all users. It allows for users to log in and view th
 
 ##Future Functionality
 In our next release, our team is excited to add: automated emails if an item is found and additional admin functionality. 
+
+## Bug Reports:
+A user can create an account with an email that already exists within the database, causing an issue. This problem stems from the fact two asychronous queries are called to the same callback.
