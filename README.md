@@ -86,6 +86,8 @@ FoundIt uses a relational PostgreSQL database hosted by ElephantSQL. The primary
 
 The database keeps track of all users. It allows for users to log in and view their profile pages. The users table also keeps track of who is an admin, and each users individual unique url. If a user is an admin, he or she can view a dashboard page mentioned above. The database is queried each time a unique URL is passed as a path in an attempt to find a user whose items must have been lost.
 
+Please note our database only allows a maximum of 4 users due to the hosting engine.
+
 ##Future Functionality
 In our next release, our team is excited to add: automated emails if an item is found and additional admin functionality. 
 
