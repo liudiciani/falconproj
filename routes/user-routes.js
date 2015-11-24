@@ -455,7 +455,9 @@ router.get('/:uuid', (req, res) => {
     notFound404(req, res);
   } else {
     res.render('a-user-id', {
-      message: result.uuid,
+      message: 'Thanks for finding our users item!',
+      name: result.uuid.fname + ' ' + result.uuid.lname,
+      email: result.uuid.email,
       isAdmin:isAdmin,
       isLoggedIn:isLoggedIn
     })
