@@ -52,13 +52,14 @@ This repository is for Falcon team members to commit code changes for our semest
 
 ##Views
 Summary of each of the views and their purpose.
+NOTE: logout will redirect the user to the splash page.
 
 **splash**: This view serves as the homepage of our webapp. A user or admin that is not logged in will be directed 
-here, as well as a visitor. 
+here, as well as a visitor. From the splash page, a visitor can access the login, signup, about, or team pages. The visitor also has the option to enter the unique url into the form to be directed to the corresponding profile.
 
 **userhome**:This view serves as the home page of a user who is logged in and online. A user can view their account information as well as access their profile, the about and team pages, and logout. If the user is also an admin, they can access their admin home page from here...how convenient!
 
-**admin**: This view serves as the home page of an administrator who is logged in and online. An admin can view the account information of all users in the database, as well as access their own user home and profile.
+**admin**: This view serves as the home page of an administrator who is logged in and online. An admin can view the account information of all users in the database, as well as access their own user home, profile, about, team pages, and logout.
 
 **about**: This view provides information about our webapp, explaining how it works, how to sign up, and the benefits of using it. It is accessible by users, admins, and visitors. 
 
