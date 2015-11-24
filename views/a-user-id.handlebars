@@ -1,25 +1,17 @@
 <!--<img src="/img/a-user-id.png" alt="User profile mockup image" />--!>
 
 
-IF USER:
-//if there is a user session online, you display logout
-<a href="/user/userhome/">User Home</a>
-<a href="/user/logout">Logout</a>
-<a href="/user/about/">About</a>
-<a href="/user/team/">Team</a><br>
-
-IF ADMIN:
+{{#if isAdmin}}
 <a href="/user/admin/">Admin Home</a>
-<a href="/user/userhome/">User Home</a>
-<a href="/user/logout">Logout</a>
-<a href="/user/about/">About</a>
-<a href="/user/team/">Team</a><br>
+{{/if}}
 
-IF VISITOR:
-<a href="/user/splash">Home</a>
-<a href="/user/signup/">Sign up</a>
-<a href="/user/about/">About</a>
-<a href="/user/team/">Team</a><br>
+{{#if isLoggedIn}}
+<a href="/user/logout">Logout</a>
+<a href="/user/userhome/">User Home</a>
+{{else}}
+<a href="/">Home</a>
+{{/if}}
+
 
 <h1>Thanks for visiting my FoundIt page!</h1>
 <p>Please contact me using the information provided below:</p>
@@ -32,14 +24,6 @@ IF VISITOR:
     </td>
     <td>
       {{name}}
-    </td>
-  </tr>
-  <tr>
-    <td>
-      Phone:
-    </td>
-    <td>
-      {{phone}}
     </td>
   </tr>
   <tr>

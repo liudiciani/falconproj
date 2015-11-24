@@ -223,8 +223,65 @@ router.get('/signup', (req, res) => {
 
 
 router.get('/a-user-id', (req, res) => {
+  var user = req.session.user;
+
+//grab the uurl value from the form on the splash page
+var uurl = req.body.uurl;
+
+var isAdmin;
+var isLoggedIn;
+
+//If there is no user session, this is likely a visitor typing in the direct uurl for that user
+if(!user){
+
+  console.log(uurl);
+  model.search(uurl,function(error,userSearched){
+    if(error){
+      req.flash('splash','No user found with that unique URL');
+      res.redirect('/user/splash');
+    }
+    else{
+      res.render('a-user-id', {
+        isLoggedIn: false,
+        isAdmin: false,
+        name:userSearched.fname+" "+userSearched.lname,
+        email:userSearched.email
+      });
+    }
+  });
+}
+
+//If session has expired, render about page with both values
+//set to false
+if(user && !online[user.email]){
+  //grab the uurl value from the form on the splash page
+  var uurl = req.body.uurl;
+  model.search(uurl,function(error,user){
+    if(error){
+      req.flash('splash','No user found with that unique URL');
+      res.redirect('/user/splash');
+    }
+    else{
+      res.render('a-user-id', {
+        isLoggedIn: false,
+        isAdmin: false,
+        name:user.fname+" "+user.lname,
+        email:user.email
+      });
+    }
+  });
+}
+
+//If user is online, check if admin and show links accordingly
+if(user && online[user.email]){
   res.render('a-user-id', {
-    });
+    isLoggedIn: true,
+    isAdmin: (user.admin == 'yes'),
+    name:user.fname+" "+user.lname,
+    phone:user.phone,
+    email:user.email
+  });
+}
 });
 
 router.get('/userhome', function(req, res) {
