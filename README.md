@@ -51,8 +51,25 @@ This repository is for Falcon team members to commit code changes for our semest
 *chance - Chance.js is a minimalistic library used for random string generation.
 
 ##Views
+Summary of each of the views and their purpose.
 
-TODO: Summary of each of the views and their purpose.
+**splash**: This view serves as the homepage of our webapp. A user or admin that is not logged in will be directed 
+here, as well as a visitor. 
+
+**userhome**:This view serves as the home page of a user who is logged in and online. A user can view their account information as well as access their profile, the about and team pages, and logout. If the user is also an admin, they can access their admin home page from here...how convenient!
+
+**admin**: This view serves as the home page of an administrator who is logged in and online. An admin can view the account information of all users in the database, as well as access their own user home and profile.
+
+**about**: This view provides information about our webapp, explaining how it works, how to sign up, and the benefits of using it. It is accessible by users, admins, and visitors. 
+
+**team**: This view provides information about the Falcons teammembers, including contact information. It is accessible by users, admins, as well visitors. 
+
+**a-user-id**: This view serves as the publicly visible unique profile page of a user. It displays their contact information so that the user can inform them of finding their item. This page is accessible by users, admins, and visitors. Logged in, online users can navigate back to their userhome or logout. Logged in, online users can navigate to their userhome, admin homepage, or logout. Visitors can navigate to our splash view. 
+
+**login**: This view provides a log in form for users and admins. It is accessible by offline users, offline admins, and visitors, however failure to fill the form with credentials of an existing user/admin will prevent access to protected pages (such as userhome, admin, etc.).
+
+**signup**: This view provides a sign up form for visitors to create an account. It is intended for visitors, however it is also accessible by offline users and offline admins. Filling the form with appropriate credentials (such as an email not already existing in the database) will create an account for the new user. The url generator will assign them with a unique url, which will be placed in the database accordingly. The user is then directed to the log in page to enter their credentials and access their homepage.
+
 
 ##Statefulness
 
