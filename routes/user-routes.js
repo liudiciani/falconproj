@@ -452,6 +452,7 @@ router.get('/:uuid', (req, res) => {
 
   var result = user_profile.fetch(req.params.uuid);
   if(!result.success) {
+    console.log('hello, jared');
     notFound404(req, res);
   } else {
     res.render('a-user-id', {

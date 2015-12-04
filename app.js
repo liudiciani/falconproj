@@ -98,7 +98,18 @@ app.get('/', (req, res) => {
   res.redirect('/user/splash');
 });
 
-
+var model = require('./lib/user');
+app.get('/:uuid', (req, res) => {
+  model.search(req.params.uuid, (err, data) => {
+    if(err) {
+    notFound404(req, res);
+    } else {
+      res.render('a-user-id', {
+      message: 'Thanks for finding our users item!',
+      name: data.fname + ' ' + data.lname,
+      email: data.email,
+    })
+  }})});
 
 //////////////////////////////////////////////////////////////////////
 ///// Error Middleware ///////////////////////////////////////////////
