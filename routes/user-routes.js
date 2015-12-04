@@ -226,7 +226,7 @@ router.get('/a-user-id', (req, res) => {
   var user = req.session.user;
 
 //grab the uurl value from the form on the splash page
-var uurl = req.body.uurl;
+var uurl = req.query.uurl;
 
 var isAdmin;
 var isLoggedIn;
