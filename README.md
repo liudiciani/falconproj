@@ -47,10 +47,10 @@
 
 ## Views
 Summary of each of the views and their purpose.
-NOTE: logout will redirect the user to the splash page.
+NOTE: logout will redirect the user to the mainHome page.
 
-**splash**: This view serves as the homepage of our webapp. A user or admin that is not logged in will be directed 
-here, as well as a visitor. From the splash page, a visitor can access the login, signup, about, or team pages. The visitor also has the option to enter the unique url into the form to be directed to the corresponding profile.
+**mainHome**: This view serves as the homepage of our webapp. A user or admin that is not logged in will be directed 
+here, as well as a visitor. From the mainHome page, a visitor can access the login, signup, about, or team pages. The visitor also has the option to enter the unique url into the form to be directed to the corresponding profile.
 
 **userhome**:This view serves as the home page of a user who is logged in and online. A user can view their account information as well as access their profile, the about and team pages, and logout. If the user is also an admin, they can access their admin home page from here...how convenient!
 
@@ -60,7 +60,7 @@ here, as well as a visitor. From the splash page, a visitor can access the login
 
 **team**: This view provides information about the Falcons teammembers, including contact information. It is accessible by users, admins, as well visitors. 
 
-**a-user-id**: This view serves as the publicly visible unique profile page of a user. It displays their contact information so that the user can inform them of finding their item. This page is accessible by users, admins, and visitors. Logged in, online users can navigate back to their userhome or logout. Logged in, online users can navigate to their userhome, admin homepage, or logout. Visitors can navigate to our splash view. 
+**user-profile**: This view serves as the publicly visible unique profile page of a user. It displays their contact information so that the user can inform them of finding their item. This page is accessible by users, admins, and visitors. Logged in, online users can navigate back to their userhome or logout. Logged in, online users can navigate to their userhome, admin homepage, or logout. Visitors can navigate to our mainHome view. 
 
 **login**: This view provides a log in form for users and admins. It is accessible by offline users, offline admins, and visitors, however failure to fill the form with credentials of an existing user/admin will prevent access to protected pages (such as userhome, admin, etc.).
 
