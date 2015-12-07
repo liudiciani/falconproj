@@ -105,7 +105,7 @@ app.get('/:uuid', (req, res) => {
     notFound404(req, res);
     } else {
       res.render('a-user-id', {
-      message: 'Thanks for finding our users item!',
+      message: 'Thanks for finding our user\'s item!',
       name: data.fname + ' ' + data.lname,
       email: data.email,
     })
