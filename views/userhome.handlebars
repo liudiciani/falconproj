@@ -1,46 +1,99 @@
-<!--<img src="/img/UserHome.png" alt="User homepage" />--!>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{{title}}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet"
+          type="text/css"
+          href="/stylesheets/userhome.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 
-        <a href="/user/about/">About</a>
- 		<a href="/user/team/">Team</a>
- 		<a href="/user/a-user-id/">Profile</a>
- 		{{#if isAdmin}}
- 		<a href="/user/admin/">Admin Home</a>
-        {{/if}}
-        <a href="/user/logout/">Log Out</a>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">foundit!</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+      {{#if isAdmin}}
+           <li><a href="/user/admin">Admin Home</a></li>
+       {{/if}}
+        <li class="active"><a href="/user/userhome/">Home</a></li>
+        <li><a href="/user/about/">About</a></li>
+        <li><a href="/user/team">Team</a></li>
+        <li><a href="/user/a-user-id">Profile</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/user/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-<h1>{{title}}</h1>
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-4 sidenav">
+    <center>
+            <h4>Here is a summary of your personal information.</h4>
+            <p>
+            <table>
+                <tr>
+                <td>
+                  Name:
+                </td>
+                <td>
+                  {{name}}
+                </td>
+                </td>
 
-<h1>Hello, {{fname}}!</h1>
-<div>{{message}}</div>
+                <tr>
+                  <td>
+                    Email:
+                  </td>
+                  <td>
+                    {{email}}
+                  </td>
+                  </tr>
 
-<p>Your info:</p>
-<table>
-  <tr>
-    <td>
-      Unique User URL
-    </td>
-    <td>
-      Name
-    </td>
-    <td>
-      Email
-    </td>
-  </tr>
-  {{user}}
-    <tr>
-      <td>
-        {{uurl}}
-      </td>
-      <td>
-        {{name}}
-      </td>
-      <td>
-        {{email}}
-      </td>
-    </tr>
-</table>
+                <tr>
+                  <td>
+                    Unique URL:
+                  </td>
+                  <td>
+                    {{uurl}}
+                  </td>
+                </tr>
+            </table>
+            </p>
+    </center>
+    </div>
+    <div class="col-sm-8 upper">
+      <h1>Welcome back, {{fname}}</h1>
 
+<hr>
+</div>
+      <div class="col-sm-8 lower">
+        <a href="/user/a-user-id"> <button type="button" class="btn btn-default btn-lg">View Profile</button></button></a>
 
-<br><br>
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p>Copyright &copy 2015 by Falcons</p>
+</footer>
+
+</body>
+</html>
 

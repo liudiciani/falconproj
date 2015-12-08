@@ -1,0 +1,68 @@
+   /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {
+        height: 400px
+    }
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 75px;
+      background-color: #555;
+      height: 100%;
+      color: white;
+    }
+
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #f1f1f1;
+      color: #555;
+      padding: 15px;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;}
+    }
+
+.upper{
+    background-color: white;
+    color: black;
+    text-align: left;
+    }
+
+.lower{
+    color: black;
+    text-align: center;
+    button-color: black;
+    }
+
+
+table{
+    width: 100%;
+    text-align: left;
+
+    }
+
+tr td {
+    font-weight: bold;
+    padding: 5px;
+}
+
+
+tr:hover{
+    background-color: #33CCFF;
+    }
+
+.btn-lg{
+    color: white;
+    background-color: #CC0000;
+}
