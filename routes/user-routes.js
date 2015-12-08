@@ -263,7 +263,6 @@ var online = require('../lib/online').online;
 
  //If there is no user session, this is likely a visitor typing in the direct uurl for that user
             if(!user){
-              console.log(uurl);
               model.search(uurl,function(error,userSearched){
                 if(error){
                   req.flash('mainHome','No user found with that unique URL');
@@ -342,6 +341,7 @@ var online = require('../lib/online').online;
           email:user.email,
           uurl: user.uurl,
           isAdmin: isAdmin
+          phone: user.phone;
           });
       }
     });
@@ -501,21 +501,20 @@ router.get('/admin', (req, res) => {
 /************************************************************************************
 *********************************| DYNAMIC ROUTE |***********************************
 ************************************************************************************/
-//
-//    router.get('/:uuid', (req, res) => {
-//          var result = user_profile.fetch(req.params.uuid);
-//          if(!result.success) {
-//            console.log('hello, jared');
-//            notFound404(req, res);
-//          } else {
-//            res.render('user-profile', {
-//              message: 'Thanks for finding our users item!',
-//              name: result.uuid.fname + ' ' + result.uuid.lname,
-//              email: result.uuid.email,
-//              isAdmin:isAdmin,
-//              isLoggedIn:isLoggedIn
-//            })
-//      }});
+
+    router.get('/:uuid', (req, res) => {
+          var result = user_profile.fetch(req.params.uuid);
+          if(!result.success) {
+            notFound404(req, res);
+          } else {
+            res.render('user-profile', {
+              message: 'Thanks for finding our users item!',
+              name: result.uuid.fname + ' ' + result.uuid.lname,
+              email: result.uuid.email,
+              isAdmin:isAdmin,
+              isLoggedIn:isLoggedIn
+            })
+      }});
 
 
 

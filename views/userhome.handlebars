@@ -22,11 +22,10 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">foundit!</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-      {{#if isAdmin}}
+       {{#if isAdmin}}
            <li><a href="/user/admin">Admin Home</a></li>
        {{/if}}
         <li class="active"><a href="/user/userhome/">Home</a></li>
@@ -74,12 +73,22 @@
                     {{uurl}}
                   </td>
                 </tr>
+               <!--
+                <tr>
+                   <td>
+                       Phone:
+                    </td>
+                       <td>
+                    {{phone}}
+                       </td>
+                    </tr>-->
+
             </table>
             </p>
     </center>
     </div>
     <div class="col-sm-8 upper">
-      <h1>Welcome back, {{fname}}</h1>
+      <h1>Welcome back, {{fname}}!</h1>
 
 <hr>
 </div>

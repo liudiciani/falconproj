@@ -1,38 +1,124 @@
-{{#if isAdmin}}
-    <a href="/user/admin/">Admin Home</a>
-{{/if}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{{title}}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet"
+          type="text/css"
+          href="/stylesheets/about.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
 
-{{#if isLoggedIn}}
-    <a href="/user/userhome/">User Home</a>
-    <a href="/user/logout">Logout</a>
-{{else}}
-    <a href="/">Home</a>
-{{/if}}
 
-<a href="/user/team/">Team</a>
+      {{#if isLoggedIn}}
+          <li><a href="/user/userhome/">User Home</a></li>
+      {{else}}
+        <li><a href="/">Home</a></li>
+        {{/if}}
+
+      {{#if isAdmin}}
+           <li><a href="/user/admin">Admin Home</a></li>
+       {{/if}}
+        <li><a href="/user/team">Team</a></li>
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        {{#if isLoggedIn}}
+        <li><a href="/user/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        {{/if}}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-12 toppane">
+      <div class = "banner">
+        <h1>What is
+        <span style="color:#33CC99"><span style="letter-spacing:0px">found</span></span><span style="letter-spacing:0px">it</span> ?</h1>
+      </div>
 
 
-<h2>The free and easy solution to all lost items! </h2>
+    </div>
+    </div>
+    </div>
 
-<h3>Foundit helps strangers return your lost items. When you sign up, you are given a unique URL that
-    is linked to your account. The url is short enough that you can write it anywhere! The URL retains your privacy
-    while making it easier for people to contact you regarding your lost item.</h3>
 
-<h3>Foundit helps solve the following problems:</h3>
-<ul>
-    <li>Many people choose to put their phone number on items in case they are lost, what if you lose your phone?</li>
-    <li>Many people resent going out of their way to return lost items, especially if it involves social interaction.</li>
-    <li>Foundit offers a privacy layer, this way you don't have to label your items with sensitive information.</li>
-    <li>Rather than changing contact information on items, Foundit will always link back to you.</li>
-    <li>People would like to simply visit a website rather than go out of their way to make contact.</li>
-    <li>If you are not available when they find it, they can leave you a message for more information.</li>
-</ul>
+    <div class="panel-group">
+      <div class="panel">
+        <div class="panel-heading">easy, fast, simple, portable</div>
+        <div class="panel-body">Foundit helps strangers return your lost items. when you sign up,
+                                            you are given a unique url that is linked to your account.
+                                             the url is short enough that you can write it anywhere.
+                                             the url retains your privacy while making it easier for
+                                             people to contact you regarding your lost item.</div>
+      </div>
+      <div class="panel">
+       <div class="panel-heading">problem solver</div>
+        <div class="panel-body"><ul>
+                                                <li>Many people choose to put their phone number on items in case they are lost, what if you lose your phone?</li>
+                                                <li>Many people resent going out of their way to return lost items, especially if it involves social interaction.</li>
+                                                <li>Foundit offers a privacy layer, this way you don't have to label your items with sensitive information.</li>
+                                                <li>Rather than changing contact information on items, Foundit will always link back to you.</li>
+                                                <li>People would like to simply visit a website rather than go out of their way to make contact.</li>
+                                                <li>If you are not available when they find it, they can leave you a message for more information.</li>
+                                            </ul></div>
+      </div>
+      <div class="panel">
+              <div class="panel-heading">versatile</div>
+              <div class="panel-body"><ul>
+                                                      <li><strong>Lost Pets</strong> - Using our product for your pet's collar will make it easier to find them. </li>
+                                                      <li><strong>Misplaced Cellphones</strong> - Cellphones are typically main points of contact for lost items, if your cellphone is lost the URL provides a safe fallback.</li>
+                                                      <li><strong>Vanished Electronics</strong> - Leave your laptop at class? Have it quickly returned.</li>
+                                                      <li><strong>Community Promotion</strong> - Universities can assign our product to incoming students so police and fellow peers can quickly return lost or stolen items on campus.</li>
+                                                      <li><strong>Notebooks and Textbooks</strong> - Everyone loses a notebook at some point. This time you'll get it back. </li>
+                                                  </ul></div>
+            </div>
+    </div>
 
-<h3>Use Cases</h3>
-<ul>
-    <li><strong>Lost Pets</strong> - Using our product for your pet's collar will make it easier to find them. </li>
-    <li><strong>Misplaced Cellphones</strong> - Cellphones are typically main points of contact for lost items, if your cellphone is lost the URL provides a safe fallback.</li>
-    <li><strong>Vanished Electronics</strong> - Leave your laptop at class? Have it quickly returned.</li>
-    <li><strong>Community Promotion</strong> - Universities can assign our product to incoming students so police and fellow peers can quickly return lost or stolen items on campus.</li>
-    <li><strong>Notebooks and Textbooks</strong> - Everyone loses a notebook at some point. This time you'll get it back. </li>
-</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+<footer class="container-fluid text-center">
+  <p>Copyright &copy 2015 by Falcons</p>
+</footer>
+
+</body>
+</html>
