@@ -13,13 +13,13 @@ var online = require('../lib/online').online;
 
 
 /************************************************************************************
-*********************************| SPLASH ROUTE |************************************
+*********************************| mainHome ROUTE |************************************
 ************************************************************************************
     If user is logged in, then reroute to user home or admin home
     depending on whether or not the user is an admin. If user is not logged in, then
-    redirect to the splash page.*/
+    redirect to the mainHome page.*/
 
-   router.get('/splash', (req, res) => {
+   router.get('/mainHome', (req, res) => {
         // Grab the session if the user is logged in.
         var user = req.session.user;
 
@@ -35,10 +35,10 @@ var online = require('../lib/online').online;
               res.redirect('/user/userhome');
           }
         }
-        else {//if user is not logged in, render the splash page
+        else {//if user is not logged in, render the mainHome page
           // Grab any messages being sent to us from redirect:
-          var message = req.flash('splash') || '';
-          res.render('splash', {
+          var message = req.flash('mainHome') || '';
+          res.render('mainHome', {
             message : message });
         }
 });
@@ -156,9 +156,9 @@ var online = require('../lib/online').online;
             delete req.session.user;
           }
 
-          // Redirect to splash page regardless.
-          req.flash('splash','Successful log out.')
-          res.redirect('/user/splash');
+          // Redirect to mainHome page regardless.
+          req.flash('mainHome','Successful log out.')
+          res.redirect('/user/mainHome');
     });
 
 
@@ -252,10 +252,10 @@ var online = require('../lib/online').online;
 ************************************************************************************/
 
 
-        router.get('/a-user-id', (req, res) => {
+        router.get('/user-profile', (req, res) => {
             var user = req.session.user;
 
-            //grab the uurl value from the form on the splash page
+            //grab the uurl value from the form on the mainHome page
             var uurl = req.query.uurl;
 
             var isAdmin;
@@ -266,11 +266,11 @@ var online = require('../lib/online').online;
               console.log(uurl);
               model.search(uurl,function(error,userSearched){
                 if(error){
-                  req.flash('splash','No user found with that unique URL');
-                  res.redirect('/user/splash');
+                  req.flash('mainHome','No user found with that unique URL');
+                  res.redirect('/user/mainHome');
                 }
                 else{
-                  res.render('a-user-id', {
+                  res.render('user-profile', {
                     isLoggedIn: false,
                     isAdmin: false,
                     name:userSearched.fname+" "+userSearched.lname,
@@ -282,15 +282,15 @@ var online = require('../lib/online').online;
 
 //If session has expired, render about page with both values set to false
             if(user && !online[user.email]){
-            //grab the uurl value from the form on the splash page
+            //grab the uurl value from the form on the mainHome page
             var uurl = req.body.uurl;
             model.search(uurl,function(error,user){
                 if(error){
-                  req.flash('splash','No user found with that unique URL');
-                  res.redirect('/user/splash');
+                  req.flash('mainHome','No user found with that unique URL');
+                  res.redirect('/user/mainHome');
                 }
                 else{
-                  res.render('a-user-id', {
+                  res.render('user-profile', {
                     isLoggedIn: false,
                     isAdmin: false,
                     name:user.fname+" "+user.lname,
@@ -302,7 +302,7 @@ var online = require('../lib/online').online;
 
 //If user is online, check if admin and show links accordingly
             if(user && online[user.email]){
-                res.render('a-user-id', {
+                res.render('user-profile', {
                 isLoggedIn: true,
                 isAdmin: (user.admin === 'yes'),
                 name:user.fname+" "+user.lname,
@@ -322,10 +322,10 @@ var online = require('../lib/online').online;
       var user = req.session.user;
       var isAdmin = (user.isAdmin === 'yes');
 
-      // If no session, redirect to splash.
+      // If no session, redirect to mainHome.
       if (!user) {
-        req.flash('splash', 'Not logged in');
-        res.redirect('/user/splash');
+        req.flash('mainHome', 'Not logged in');
+        res.redirect('/user/mainHome');
       }
       else if (user && !online[user.email]) {
         req.flash('login', 'Login Expired');
@@ -341,7 +341,7 @@ var online = require('../lib/online').online;
           name: user.fname+user.lname,
           email:user.email,
           uurl: user.uurl,
-          isAdmin: isAdmin;
+          isAdmin: isAdmin
           });
       }
     });
@@ -355,8 +355,8 @@ router.get('/admin', (req, res) => {
       var user = req.session.user;
 
       if (!user) {
-        req.flash('splash', 'Not logged in');
-        res.redirect('/user/splash');
+        req.flash('mainHome', 'Not logged in');
+        res.redirect('/user/mainHome');
       }
       else if (user && !online[user.email]) {
         req.flash('login', 'Login Expired');
@@ -378,8 +378,8 @@ router.get('/admin', (req, res) => {
             res.render('admin', {
                     message: message,
                     title: 'Admin Home',
-                    fname: user.fname;
-                    name: user.fname+" "+user.lname,
+                    fname: user.fname,
+                    name: user.fname+user.lname,
                     email: user.email,
                     uurl: user.uurl,
                     isAdmin: (user.admin === 'yes'),
@@ -501,27 +501,27 @@ router.get('/admin', (req, res) => {
 /************************************************************************************
 *********************************| DYNAMIC ROUTE |***********************************
 ************************************************************************************/
-
-    router.get('/:uuid', (req, res) => {
-          var result = user_profile.fetch(req.params.uuid);
-          if(!result.success) {
-            console.log('hello, jared');
-            notFound404(req, res);
-          } else {
-            res.render('a-user-id', {
-              message: 'Thanks for finding our users item!',
-              name: result.uuid.fname + ' ' + result.uuid.lname,
-              email: result.uuid.email,
-              isAdmin:isAdmin,
-              isLoggedIn:isLoggedIn
-            })
-      }});
+//
+//    router.get('/:uuid', (req, res) => {
+//          var result = user_profile.fetch(req.params.uuid);
+//          if(!result.success) {
+//            console.log('hello, jared');
+//            notFound404(req, res);
+//          } else {
+//            res.render('user-profile', {
+//              message: 'Thanks for finding our users item!',
+//              name: result.uuid.fname + ' ' + result.uuid.lname,
+//              email: result.uuid.email,
+//              isAdmin:isAdmin,
+//              isLoggedIn:isLoggedIn
+//            })
+//      }});
 
 
 
 /************************************************************************************
 **************************************| MISC. |*************************************
-************************************************************************************
+************************************************************************************/
 
 // Provides a login view
 

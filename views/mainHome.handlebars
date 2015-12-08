@@ -30,7 +30,7 @@
       <ul class="nav navbar-nav">
         <li><a href="/user/about/">About</a></li>
         <li><a href="/user/team">Team</a></li>
-        <li><a href="/user/a-user-id">Profile</a></li>
+        <li><a href="/user/user-profile">Profile</a></li>
         {{#if isAdmin}}
         <li><a href="/user/admin">Admin Home</a></li>
         {{/if}}
@@ -51,23 +51,17 @@
 
       <h5>Find something?</h5>
       <p>Enter ID here:</p>
-      <form method="get" action="/user/a-user-id/">
+      <form method="get" action="/user/user-profile/">
         <input type="text" name="uurl"><button type="button" class="btn idButton btn-sm">Contact Owner</button>
       </form>
 
-<<<<<<< HEAD:views/splash.handlebars
     </div>
     </div>
    <div class = "buttons">
     {{message}}<br>
       <a href="/user/login"> <button type="button" class="btn loginButton btn">L O G I N</button></button></a><br>
       <a href="/user/signup"> <button type="button" class="btn  signupButton btn">S I G N  U P</button> </a>
-=======
-<form method="get" action="/user/user-profile/">
-  Enter ID here: <input type="text" name="uurl">
-  <button>GO</button>
-</form>
->>>>>>> 00d87872a99e9c836bc48887ec3e79ad71571ac3:views/mainHome.handlebars
+
 
   </div>
 </div>
