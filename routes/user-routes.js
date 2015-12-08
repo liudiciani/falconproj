@@ -341,7 +341,6 @@ var online = require('../lib/online').online;
           email:user.email,
           uurl: user.uurl,
           isAdmin: isAdmin
-          phone: user.phone;
           });
       }
     });
