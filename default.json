@@ -1,0 +1,9 @@
+{
+  "db": {
+    "hostname": "pellefant-01.db.elephantsql.com",
+    "dbName": "wtsfkxks",
+    "username": "wtsfkxks",
+    "password": "vgXusCkUzj-508OhXplMx9euUEPIKbDs",
+    "url": "postgres://wtsfkxks:vgXusCkUzj-508OhXplMx9euUEPIKbDs@pellefant.db.elephantsql.com:5432/wtsfkxks"
+  }
+}

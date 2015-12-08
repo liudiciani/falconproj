@@ -95,7 +95,7 @@ app.use(flash());
 app.use('/user', require('./routes/user-routes'));
 
 app.get('/', (req, res) => {
-  res.redirect('/user/splash');
+  res.redirect('/user/mainHome');
 });
 
 var model = require('./lib/user');
@@ -104,8 +104,8 @@ app.get('/:uuid', (req, res) => {
     if(err) {
     notFound404(req, res);
     } else {
-      res.render('a-user-id', {
-      message: 'Thanks for finding our users item!',
+      res.render('user-profile', {
+      message: 'Thanks for finding our user\'s item!',
       name: data.fname + ' ' + data.lname,
       email: data.email,
     })

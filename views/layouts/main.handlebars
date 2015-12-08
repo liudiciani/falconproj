@@ -1,56 +1,73 @@
-
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
+<html lang="en">
+<head>
+  <title>{{title}}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet"
+          type="text/css"
+          href="/stylesheets/userhome.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-    <!--The width=device-width part sets the width of the page to
-     follow the screen-width of the device (which will vary
-     depending on the device). The initial-scale=1 part sets the
-     initial zoom level when the page is first loaded by the
-     browser.-->
+</head>
+<body>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
 
-    <title>FoundIt!</title>
-
-
-      <link rel="stylesheet"
-      type="text/css"
-      href="/stylesheets/main.css">
-
-    <!-- We are conditionally including test support if the showTests
-         variables has been set. -->
-    {{#if showTests}}
-      <link rel="stylesheet" href="/vendor/mocha.css">
-    {{/if}}
-
-    <!-- We add the jQuery library because we will be using it
-         to manipulate HTML in the browser. -->
-    <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-  </head>
-  <body>
-
-  <!--<h1><img src="/img/logo.png" alt="FoundIt Logo" /></h1>-->
-  <center>
+      <a class="navbar-brand" href="#">foundit!</a>
+    </div>
+   <!-- <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="/user/about/">About</a></li>
+        <li><a href="/user/team">Team</a></li>
+        <li><a href="/user/a-user-id">Profile</a></li>
+        {{#if isAdmin}}
+        <li><a href="/user/admin">Admin Home</a></li>
+        {{/if}}
 
 
-    {{#if showTests}}
-      <div id="mocha"></div>
-      <script src="/vendor/mocha.js"></script>
-      <script src="/vendor/chai.js"></script>
-      <script>
-        mocha.ui('tdd');
-        var assert = chai.assert;
-      </script>
 
-      <script src="/qa/tests-global.js"></script>
-      {{#if pageTestScript}}
-        <script src="{{pageTestScript}}"></script>
-      {{/if}}
-      <script>mocha.run();</script>
-    {{/if}}
-    <br>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/user/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      </ul>
+    </div>
+    -->
+  </div>
+</nav>
+
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>
+    </div>
+    <div class="col-sm-10 text-left">
+    {{{body}}}
+    </div>
+      <div class="col-sm-10 text-left">
+     </div>
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p>Copyright &copy 2015 by Falcons</p>
+</footer>
+
+</body>
+</html>-profile/">User Profile</a>
+>>>>>>> 00d87872a99e9c836bc48887ec3e79ad71571ac3
 
 
 
