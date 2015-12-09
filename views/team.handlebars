@@ -1,25 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{{title}}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet"
+          type="text/css"
+          href="/stylesheets/team.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+
+      {{#if isLoggedIn}}
+          <li><a href="/user/userhome/">User Home</a></li>
+      {{else}}
+        <li><a href="/">Home</a></li>
+        {{/if}}
+
+      {{#if isAdmin}}
+           <li><a href="/user/admin">Admin Home</a></li>
+       {{/if}}
+        <li><a href="/user/about">About</a></li>
 
 
-{{#if isAdmin}}
-<a href="/user/admin/">Admin Home</a>
-{{/if}}
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        {{#if isLoggedIn}}
+        <li><a href="/user/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        {{/if}}
+      </ul>
+    </div>
+  </div>
+</nav>
 
-{{#if isLoggedIn}}
-<a href="/user/userhome/">User Home</a>
-<a href="/user/logout">Logout</a>
-{{else}}
-    <a href="/">Home</a>
-{{/if}}
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-12 toppane">
+      <div class = "banner">
+        <h1>Meet the
+        <span style="color:#FF3300"><span style="letter-spacing:0px">team</span></span><span style="letter-spacing:0px"></span>.</h1>
+      </div>
 
-<a href="/user/about/">About</a>
+
+    </div>
+    </div>
+    </div>
 
 
-<h1>Meet the Team</h1>
+    <div class="panel-group">
+      <div class="panel">
+        <div class="panel-heading">andrew raleigh</div>
+        <div class="panel-body">Originally from New Jersey, Andrew is a
+         computer science student focusing on data science and search
+         engines at UMass Amherst. He contributes towards backend
+         database engineering. When he is not exploring data science,
+         Andrew can be found snowboarding mountains all over New England
+          and training at the rec center. He is also an avid Manchester
+           United and soccer fan.</div></div>
+      <div class="panel">
+       <div class="panel-heading">lisa iudiciani</div>
+        <div class="panel-body">Lisa is currently a computer science student with a focus in software engineering at UMass Amherst. She will exercise her passion for the User Interface/User Experience fields by designing and developing an attractive, interactive and easily navigational interface. She will utilize her experience in HTML and CSS to ensure that the site is appealing and reflects the major feature of our application - simplicity. Not only does Lisa identify herself as a developer; she also responds to the titles of baker, dog hugger, and adequate guitar player.</div></div>
+      <div class="panel">
+              <div class="panel-heading">aaron kaplowitz</div>
+              <div class="panel-body">Aaron is UMass CS student from eastern Massachusetts. He will be constributing to the entire stack for foundit, but will focus on the backend and leverage the communication between the UI and the database. He loves food, bowling, theater, and short walks on log beaches.</div></div>
+      <div class="panel">
+              <div class="panel-heading">jared koester</div>
+              <div class="panel-body"> ared's dream is to develop an operating system. He focuses on low-level programming and software systems in his studies at UMass. Having won a hackathon for his original pitch of findIt, then called Keytagg, he is now working on it's implementation by contributing ful stack development and guiding the overall implementation. </div></div>
 
-<h2>Get to know our engineers.</h2>
-<h2>Total: ({{members.length}})</h2>
-<ul>
-  {{#each members}}
-  <li><strong>{{this.fname}} {{this.lname}}</strong> - {{this.profile}}</li>
-  {{/each}}
-</ul>
+       <div class="panel">
+               <div class="panel-heading">ben danzig</div>
+               <div class="panel-body">Ben is a Junior Computer Science student at UMass Amherst. He has experience with software engineering at his last internship in the Summer of 2015, and his language of choice is Java. He is responsible for preliminary research for Team Falcon, such as keeping up with market competition for FoundIt! and making sure that the product provides a unique service and has a competitive edge. In his free time, Ben likes to stay active by playing Basketball, Volleyball, and going hiking whenever possible. </div></div>
+
+       <div class="panel">
+               <div class="panel-heading">tyler zentz</div>
+               <div class="panel-body">Tyler is currently in his third year at the University of Massachusetts Amherst, pursuing a degree in Computer Science. With his new found knowledge of JavaScript he will help his team in all aspects of the creation of FoundIt, while focusing primarily on frontend development. In his free time, Tyler enjoys exercising at the gym, playing pickup soccer, and strumming his acoustic guitar. </div></div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+<footer class="container-fluid text-center">
+  <p>Copyright &copy 2015 by Falcons</p>
+</footer>
+
+</body>
+</html>

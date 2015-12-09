@@ -1,0 +1,54 @@
+   /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    /* Set height of the grid so .toppane can be 100% (adjust as needed) */
+    .row.content {height: 200px;}
+
+    /* Set gray background color and 100% height */
+    .toppane{
+      padding: 100px;
+      background-color: #555;
+      height: 100%;
+    }
+
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #f1f1f1;
+      color: #555;
+      padding: 15px;
+    }
+
+    /* On small screens, set height to 'auto' for leftpane and grid */
+    @media screen and (max-width: 767px) {
+      .toppane{
+        height: auto;
+        padding: 15px;
+      }
+
+      .row.content {height:auto;}
+    }
+
+.btn{
+    width: 200px;
+}
+
+.submitButton:hover {
+  background-color: black;
+  color: #33CC99;
+}
+
+
+.submitButton{
+    color: white;
+    background-color: #33CC99;
+}
+
+
+h4, h5{
+    margin-bottom: 0;
+    color: white;
+}
+

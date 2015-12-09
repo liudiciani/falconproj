@@ -1,0 +1,95 @@
+   /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    /* Set height of the grid so .toppane can be 100% (adjust as needed) */
+    .row.content {height: 350px;}
+    .row.buttons {height: 200px;}
+
+    /* Set gray background color and 100% height */
+    .toppane{
+      padding-top: 20px;
+      background-color: #555;
+      height: 100%;
+    }
+
+    .logo{
+        padding-top: 50px;
+        padding-bottom: 15px;
+    }
+
+
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #f1f1f1;
+      color: #555;
+      padding: 15px;
+    }
+
+    /* On small screens, set height to 'auto' for leftpane and grid */
+    @media screen and (max-width: 767px) {
+      .toppane, .lowpane {
+        height: auto;
+        padding: 15px;
+      }
+
+      .row.content {height:auto;}
+      .row.buttons {height: auto;}
+    }
+
+.buttons{
+    margin: 40px;
+}
+
+
+.lowpane{
+    margin: 50px;
+    color: black;
+    }
+
+.buttons .btn{
+    width: 200px;
+}
+
+.loginButton:hover {
+  background-color: black;
+  color: #33CC99;
+}
+
+.signupButton:hover {
+  background-color: black;
+  color: #FF3300;
+}
+
+.loginButton{
+    color: white;
+    background-color: #33CC99;
+}
+
+.signupButton{
+    color: white;
+    background-color: #FF3300;
+}
+
+.idButton{
+    color: white;
+    background-color: #202020;
+}
+
+
+h4{
+    margin-bottom: 0;
+    color: white;
+}
+
+h5{
+    margin-bottom: 0;
+    color: white;
+}
+
+p{
+    color: #202020;
+    margin-bottom: 0px;
+}

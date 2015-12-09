@@ -1,38 +1,117 @@
-<!--<img src="/img/a-user-id.png" alt="User profile mockup image" />--!>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{{title}}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet"
+          type="text/css"
+          href="/stylesheets/user-profile.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+      {{#if isLoggedIn}}
+              <li><a href="/user/userhome/">Home</a></li>
+             {{/if}}
+      {{#if isAdmin}}
+           <li><a href="/user/admin">Admin Home</a></li>
+       {{/if}}
+        <li><a href="/user/about/">About</a></li>
+        <li><a href="/user/team">Team</a></li>
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        {{#if isLoggedIn}}
+        <li><a href="/user/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        {{/if}}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-12 toppane">
+      <div class = "banner">
+        <h1>Thanks for visiting my
+        <span style="color:#33CC99"><span style="letter-spacing:0px">found</span></span><span style="color:black"><span style="letter-spacing:0px">it</span></span> page!</h1>
+        <p><span style="color:black">W H A T &nbsp;&nbsp;I S &nbsp;&nbsp;F O U N D I T &nbsp;?&nbsp;&nbsp;</span>
+        foundit helps strangers return your lost items. when you sign up,
+        you are given a unique url that is linked to your account.
+         the url is short enough that you can write it anywhere.
+         the url retains your privacy while making it easier for
+         people to contact you regarding your lost item. visit the
+          <a href="/user/about/">about page</a> to learn more or
+          the <a href="/user/signup">signup page</a> to set up your very
+          own foundit account today</p>
+
+      </div>
 
 
-{{#if isAdmin}}
-<a href="/user/admin/">Admin Home</a>
-{{/if}}
+    </div>
+    </div>
+    <div class = "lowpane">
+     <h2>C O N T A C T&nbsp;&nbsp;<span style="color:#33CC99">M E</span></h2>
+     <p>please use the information below to contact me about my item</p>
+     <br>
+    <div class = "col-sm-4 col-sm-offset-4">
+    <table>
+      <tr>
+        <td>
+          <span style="color:#33CC99">N A M E :</span>
+        </td>
+        <td>
+          {{name}}
+        </td>
+      </tr>
+      <tr>
+        <td>
+         <span style="color:#33CC99"> E M A I L :</span>
+        </td>
+        <td>
+          {{email}}
+        </td>
+      </tr>
+       <tr>
+         <td>
+           <span style="color:#33CC99">P H O N E :</span>
+         </td>
+         <td>
+           {{phone}}
+         </td>
+       </tr>
+      </tr>
+      </tr>
+    </table>
+    </div>
+    </div>
 
-{{#if isLoggedIn}}
-<a href="/user/logout">Logout</a>
-<a href="/user/userhome/">User Home</a>
-{{else}}
-<a href="/">Home</a>
-{{/if}}
+    <br><br>
 
 
-<h1>Thanks for visiting my FoundIt page!</h1>
-<p>Please contact me using the information provided below:</p>
-<div>{{message}}</div><br>
+    <div class="form-group col-sm-4 col-sm-offset-4">
+      <label for="comment"><p>or enter your own customized message in the field below</p></label>
+      <textarea class="form-control" rows="5" id="comment"></textarea>
+    </div>
 
-<table>
-  <tr>
-    <td>
-      Name:
-    </td>
-    <td>
-      {{name}}
-    </td>
-  </tr>
-  <tr>
-    <td>
-      Email:
-    </td>
-    <td>
-      {{email}}
-    </td>
-  <tr>
-  </tr>
-</table>
+</div>
+
+<footer class="container-fluid text-center">
+  <p>Copyright &copy 2015 by Falcons</p>
+</footer>
+
+</body>
+</html>

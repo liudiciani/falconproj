@@ -1,0 +1,110 @@
+   /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    /* Set height of the grid so .toppane can be 100% (adjust as needed) */
+    .row.content {height: 125px;}
+
+    /* Set gray background color and 100% height */
+    .toppane{
+      padding-top: 20px;
+      background-color: #555;
+      height: 100%;
+
+    }
+
+    .banner{
+      padding-left: 30%;
+      padding-right: 30%;
+      padding-bottom: 40px;
+
+
+    }
+
+
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #f1f1f1;
+      color: #555;
+      padding: 15px;
+      margin-top: 100px;
+    }
+
+    /* On small screens, set height to 'auto' for leftpane and grid */
+    @media screen and (max-width: 767px) {
+      .toppane, .lowpane {
+        height: auto;
+        padding: 15px;
+      }
+
+      .row.content {height:auto;}
+    }
+
+table{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    }
+
+tr td {
+    font-weight: bold;
+    padding: 5px;
+}
+
+
+tr:hover{
+    background-color: #f1f1f1;
+    }
+
+h1, h2, h3, h4, p{
+    margin-bottom: 0;
+}
+
+h1{
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    color: white;
+}
+
+
+h5{
+    color: #FF3300;
+}
+
+p{
+    color: black;
+    font-variant: small-caps;
+
+}
+
+a{
+    color: black;
+}
+
+a:hover{
+    color: #202020;
+}
+
+.form-control{
+    margin-top: 0px;
+    background: #f1f1f1;
+}
+
+.panel-group{
+   padding-left: 20%;
+   padding-right: 20%;
+   padding-top: 15px;
+
+}
+
+.panel-heading{
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    background-color: #FF3300;
+    color: white;
+}
+
+.panel-content{
+}

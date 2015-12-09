@@ -1,57 +1,17 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>FoundIt!</title>
-		<!-- We are conditionally including test support if the showTests
-         variables has been set. -->
-		{{#if showTests}}
-			<link rel="stylesheet" href="/vendor/mocha.css">
-		{{/if}}
+<html lang="en">
+<head>
+  <title>{{title}}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet"
+          type="text/css"
+          href="/stylesheets/userhome.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-		<!-- We add the jQuery library because we will be using it
-		     to manipulate HTML in the browser. -->
-		<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-	</head>
-	<body>
+</head>
 
-	<h1><img src="/img/logo.png" alt="FoundIt Logo" /></h1>
-	<center>
-
-
-		{{#if showTests}}
-			<div id="mocha"></div>
-			<script src="/vendor/mocha.js"></script>
-			<script src="/vendor/chai.js"></script>
-			<script>
-				mocha.ui('tdd');
-				var assert = chai.assert;
-			</script>
-
-			<script src="/qa/tests-global.js"></script>
-			{{#if pageTestScript}}
-				<script src="{{pageTestScript}}"></script>
-			{{/if}}
-			<script>mocha.run();</script>
-		{{/if}}
-		<br>
-		<!--<a href="/">Home</a>
-
-		<a href="/about/">About</a>
-
-		<a href="/userhome/">User Home</a>
-		<a href="/admin/">Admin Home</a>
-
-		<a href="/user-profile/">User Profile</a>
-
-		<a href="/team/">Team</a>
-
-		<a href="/login/">Login</a>
-		<a href="/signup/">Sign up</a>
-		<a href="/">Logout</a>--!>
-
-		{{{body}}}
-
-
-	</body>
+{{{body}}}
 </html>
