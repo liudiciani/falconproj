@@ -319,7 +319,7 @@ var online = require('../lib/online').online;
     router.get('/userhome', function(req, res) {
       // Grab the user session if it exists:
       var user = req.session.user;
-      var isAdmin = (user.isAdmin === 'yes');
+      var isAdmin = (user.admin === 'yes');
 
       // If no session, redirect to mainHome.
       if (!user) {
