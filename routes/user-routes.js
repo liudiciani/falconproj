@@ -303,9 +303,12 @@ router.get('/userhome', function(req, res) {
       message : message,
       fname    : user.fname ,
       admin: user.admin,
-      name: user.fname+user.lname,
-      email:user.email,
+      name: user.fname + user.lname,
+      email: user.email,
+      phone: user.phone,
+      info: user.contact_info,
       uurl: user.uurl});
+
 
   }
 });
