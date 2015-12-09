@@ -23,12 +23,13 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
+      {{#if isAdmin}}
+                 <li><a href="/user/admin">Admin Home</a></li>
+      {{/if}}
       {{#if isLoggedIn}}
               <li><a href="/user/userhome/">Home</a></li>
-             {{/if}}
-      {{#if isAdmin}}
-           <li><a href="/user/admin">Admin Home</a></li>
-       {{/if}}
+      {{/if}}
+
         <li><a href="/user/about/">About</a></li>
         <li><a href="/user/team">Team</a></li>
 
@@ -46,7 +47,7 @@
   <div class="row content">
     <div class="col-sm-12 toppane">
       <div class = "banner">
-        <h1>Thanks for visiting my
+        <h1>Thanks for visiting <br>my
         <span style="color:#33CC99"><span style="letter-spacing:0px">found</span></span><span style="color:black"><span style="letter-spacing:0px">it</span></span> page!</h1>
         <p><span style="color:black">W H A T &nbsp;&nbsp;I S &nbsp;&nbsp;F O U N D I T &nbsp;?&nbsp;&nbsp;</span>
         foundit helps strangers return your lost items. when you sign up,
@@ -67,15 +68,14 @@
      <h2>C O N T A C T&nbsp;&nbsp;<span style="color:#33CC99">M E</span></h2>
      <p>please use the information below to contact me about my item</p>
      <br>
-    <div class = "col-sm-4 col-sm-offset-4">
+    <div class = "col-sm-6 col-sm-offset-3">
     <table>
       <tr>
         <td>
           <span style="color:#33CC99">N A M E :</span>
         </td>
         <td>
-          {{name}}
-        </td>
+          {{name}} </span>
       </tr>
       <tr>
         <td>

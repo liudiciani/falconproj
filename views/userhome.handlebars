@@ -10,9 +10,11 @@
           href="/stylesheets/userhome.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-
 </head>
+
+<!-----------------------------------------------------------------------
+---------------------------| NAVIGATION BAR |----------------------------
+------------------------------------------------------------------------>
 <body>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -40,64 +42,74 @@
   </div>
 </nav>
 
+<!-----------------------------------------------------------------------
+--------------------------------| LEFT PANE |----------------------------
+------------------------------------------------------------------------>
 <div class="container-fluid text-center">
   <div class="row content">
     <div class="col-sm-4 sidenav">
-    <center>
-            <h4>Here is a summary of your personal information.</h4>
-            <p>
-            <table>
-                <tr>
-                <td>
-                  Name:
-                </td>
-                <td>
-                  {{name}}
-                </td>
-                </td>
-
-                <tr>
-                  <td>
-                    Email:
-                  </td>
-                  <td>
-                    {{email}}
-                  </td>
-                  </tr>
-
-                <tr>
-                  <td>
-                    Unique URL:
-                  </td>
-                  <td>
-                    {{uurl}}
-                  </td>
-                </tr>
-               <!--
-                <tr>
-                   <td>
-                       Phone:
-                    </td>
-                       <td>
-                    {{phone}}
-                       </td>
-                    </tr>-->
-
-            </table>
-            </p>
-    </center>
+        <a href="/user/user-profile"> <button type="button" class="btn btn-default btn-lg">View Profile</button></button></a>
     </div>
+
+<!-----------------------------------------------------------------------
+--------------------------------| RIGHT PANE |---------------------------
+------------------------------------------------------------------------>
+
+<!------------------------------| UPPER |------------------------------->
     <div class="col-sm-8 upper">
       <h1>Welcome back, {{fname}}!</h1>
-
-<hr>
-</div>
-      <div class="col-sm-8 lower">
-        <a href="/user/user-profile"> <button type="button" class="btn btn-default btn-lg">View Profile</button></button></a>
-
     </div>
-  </div>
+<!------------------------------| LOWER |------------------------------->
+    <div class = "col-sm-6 lower">
+           <h5>Here is a summary of your personal information.</h5>
+                <center>
+                <table>
+                      <tr>
+                        <td>
+                          <span style="color:#33CC99">N A M E :</span>
+                        </td>
+                        <td>
+                          {{name}} </span>
+                      </tr>
+                      <tr>
+                        <td>
+                         <span style="color:#33CC99"> E M A I L :</span>
+                        </td>
+                        <td>
+                          {{email}}
+                        </td>
+                      </tr>
+                       <tr>
+                         <td>
+                           <span style="color:#33CC99">P H O N E :</span>
+                         </td>
+                         <td>
+                           {{phone}}
+                         </td>
+                       </tr>
+                        <tr>
+                         <td>
+                           <span style="color:#33CC99">U R L :</span>
+                         </td>
+                         <td>
+                           {{uurl}}
+                         </td>
+                       </tr>
+                      </tr>
+                      </tr>
+                    </table>
+                </p>
+        </center>
+    </div>
+
+<!-------------------------------------------------------------------->
+    </div>
 </div>
+
+<!-----------------------------------------------------------------------
+--------------------------------| FOOTER |-------------------------------
+------------------------------------------------------------------------>
+
 
 <footer class="container-fluid text-center">
   <p>Copyright &copy 2015 by Falcons</p>

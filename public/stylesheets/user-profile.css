@@ -5,11 +5,13 @@
     }
 
     /* Set height of the grid so .toppane can be 100% (adjust as needed) */
-    .row.content {height: 250px;}
+    .row.content {
+        height: 50%;
+        }
 
     /* Set gray background color and 100% height */
     .toppane{
-      padding-top: 20px;
+      padding-top: 20px%;
       background-color: #555;
       height: 100%;
 
@@ -19,7 +21,6 @@
       padding-left: 20%;
       padding-right: 20%;
       padding-bottom: 40px;
-
 
     }
 
@@ -36,7 +37,6 @@
     @media screen and (max-width: 767px) {
       .toppane, .lowpane {
         height: auto;
-        padding: 15px;
       }
 
       .row.content {height:auto;}
@@ -44,13 +44,14 @@
 
 table{
     width: 100%;
-    text-align: center;
     margin-bottom: 20px;
+    text-align: center;
     }
 
 tr td {
     font-weight: bold;
-    padding: 5px;
+    padding: 10px;
+
 }
 
 
@@ -90,21 +91,4 @@ a:hover{
 .form-control{
     margin-top: 0px;
     background: #f1f1f1;
-}
-
-.panel-group{
-   padding-left: 20%;
-   padding-right: 20%;
-   padding-top: 15px;
-
-}
-
-.panel-heading{
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    background-color: #33CC99;
-    color: white;
-}
-
-.panel-content{
 }

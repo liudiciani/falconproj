@@ -46,23 +46,12 @@
     }
 
 
-table{
-    width: 100%;
-    text-align: left;
-
-    }
-
-tr td {
-    font-weight: bold;
-    padding: 5px;
-}
-
-
-tr:hover{
-    background-color: #33CCFF;
-    }
-
 .btn-lg{
     color: white;
     background-color: #CC0000;
+}
+
+h5{
+    text-transform: uppercase;
+    letter-spacing: 5px;
 }

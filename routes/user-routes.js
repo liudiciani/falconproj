@@ -340,7 +340,8 @@ var online = require('../lib/online').online;
           name: user.fname+user.lname,
           email:user.email,
           uurl: user.uurl,
-          isAdmin: isAdmin
+          isAdmin: isAdmin,
+          phone: user.phone
           });
       }
     });
