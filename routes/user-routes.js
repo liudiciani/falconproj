@@ -199,6 +199,38 @@ var online = require('../lib/online').online;
     });
 
 /************************************************************************************
+ *********************************| UPDATE ROUTE |*************************************
+ ************************************************************************************
+ This is the route that handles updating a user's contact information in the database
+ when they sign up for a new account.*/
+
+
+router.post('/update', (req, res) => {
+    //grab the input values from the update user information form.
+    var name = req.body.name;
+    var phone = req.body.phone;
+    var email = req.body.email;
+    var contact_info = req.body.contact_info;
+
+if(!contact_info || !name || !phone || !email ){
+    req.flash('user-profile','one of the info fields was left blank');
+    res.redirect('/user-profile');
+}
+else{
+    model.update(name,phone,contact_info,email,function(error,updatedUser){
+        if(error){
+            req.flash('user-profile',error);
+            res.redirect('/user-profile');
+        }
+        else{
+            req.flash('user-profile','User Addition Successful!');
+            res.redirect('/user-profile');
+        }
+    });
+}
+});
+
+/************************************************************************************
 *********************************| ADD ROUTE |*************************************
 ************************************************************************************
         This is the route that handles adding a new user to the database
@@ -358,6 +390,8 @@ var online = require('../lib/online').online;
           });
       }
     });
+
+
 /************************************************************************************
 *********************************| ADMIN ROUTE |***************************************
 ************************************************************************************/
