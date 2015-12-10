@@ -1,0 +1,9 @@
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+      border-bottom: none;
+    }
+
+    .navbar a:hover{
+        letter-spacing: 7px;
+    }
