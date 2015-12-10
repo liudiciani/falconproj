@@ -516,20 +516,20 @@ router.get('/admin', (req, res) => {
 *********************************| DYNAMIC ROUTE |***********************************
 ************************************************************************************/
 
+   
     router.get('/:uuid', (req, res) => {
-          var result = user_profile.fetch(req.params.uuid);
-          if(!result.success) {
-            notFound404(req, res);
-          } else {
-            res.render('user-profile', {
-              message: 'Thanks for finding our users item!',
-              name: result.uuid.fname + ' ' + result.uuid.lname,
-              email: result.uuid.email,
-              phone: result.uuid.phone,
-              isAdmin:isAdmin,
-              isLoggedIn:isLoggedIn
-            })
-      }});
+      model.search(req.params.uuid, (err, data) => {
+        if(err) {
+        notFound404(req, res);
+        } else {
+          res.render('user-profile', {
+          message: 'Thanks for finding our user\'s item!',
+          name: data.fname + ' ' + data.lname,
+          email: data.email,
+          phone: data.phone,
+          contact_info: data.contact_info
+        })
+      }})});
 
 
 

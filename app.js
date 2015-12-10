@@ -96,20 +96,7 @@ app.get('/', (req, res) => {
   res.redirect('/mainHome');
 });
 
-var model = require('./lib/user');
-app.get('/:uuid', (req, res) => {
-  model.search(req.params.uuid, (err, data) => {
-    if(err) {
-    notFound404(req, res);
-    } else {
-      res.render('user-profile', {
-      message: 'Thanks for finding our user\'s item!',
-      name: data.fname + ' ' + data.lname,
-      email: data.email,
-      phone: data.phone,
-      contact_info: data.contact_info
-    })
-  }})});
+
 
 //////////////////////////////////////////////////////////////////////
 ///// Error Middleware ///////////////////////////////////////////////
