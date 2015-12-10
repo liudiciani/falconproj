@@ -398,8 +398,10 @@ router.get('/admin', (req, res) => {
               name: user.fname+" "+user.lname,
               email: user.email,
               uurl: user.uurl,
-              isAdmin: (user.admin === 'yes'),
-              users: userList
+              isAdmin: true,
+              isLoggedIn: true,
+              users: userList,
+              phone: user.phone
             });
           }
         });

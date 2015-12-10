@@ -12,6 +12,11 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
+
+<!-----------------------------------------------------------------------
+---------------------------| NAVIGATION BAR |----------------------------
+------------------------------------------------------------------------>
+<body>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -23,28 +28,34 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-
       {{#if isLoggedIn}}
-          <li><a href="/user/userhome/">User Home</a></li>
-      {{else}}
-        <li><a href="/">Home</a></li>
-        {{/if}}
+            {{#if isAdmin}}
+                 <li><a href="/user/admin">Admin Home</a></li>
+                 <li><a href="/user/userhome">Personal Home</a></li>
+            {{else}}
+                 <li><a href="/user/userhome/">Home</a></li>
+            {{/if}}
 
-      {{#if isAdmin}}
-           <li><a href="/user/admin">Admin Home</a></li>
-       {{/if}}
-        <li><a href="/user/about">About</a></li>
 
+
+
+     {{else}}
+     <li><a href="/">Home</a></li>
+     {{/if}}
+     <li><a href="/user/about/">About</a></li>
+     <li class = "active"><a href="/user/team">Team</a></li>
 
       </ul>
       <ul class="nav navbar-nav navbar-right">
         {{#if isLoggedIn}}
+        <li><a href="/user/user-profile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
         <li><a href="/user/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
         {{/if}}
       </ul>
     </div>
   </div>
 </nav>
+
 
 <div class="container-fluid text-center">
   <div class="row content">
