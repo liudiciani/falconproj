@@ -334,9 +334,9 @@ else{
              });
             }
 
-//If user is online, check if admin and show links accordingly
+//If user is online, render page where user can edit information
             if(user && online[user.email]){
-                res.render('user-profile', {
+                res.render('profile-edit', {
                 isLoggedIn: true,
                 isAdmin: (user.admin === 'yes'),
                 name:user.fname+" "+user.lname,
@@ -544,7 +544,7 @@ router.get('/admin', (req, res) => {
     router.get('/:uuid', (req, res) => {
       model.search(req.params.uuid, (err, data) => {
         if(err) {
-        notFound404(req, res);
+            res.render('404');
         } else {
           res.render('user-profile', {
           message: 'Thanks for finding our user\'s item!',

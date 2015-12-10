@@ -62,10 +62,9 @@
 
 
 .btn{
-    top-margin: 5px;
     background-color: transparent;
-    width: 300px;
-    letter-spacing: 5px;
+    width: 70%;
+    letter-spacing: 3px;
     color: white;
     text-transform: uppercase;
 }
@@ -90,6 +89,7 @@
 .sidenav .viewprofile{
     margin-top: 30px;
     margin-bottom: 30px;
+    font-size: 12px;
 }
 
 /*---------------------------------| TEXT |--------------------------------*/
