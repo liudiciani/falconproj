@@ -125,7 +125,7 @@ p{
     background-color: transparent;
     width: 300px;
     letter-spacing: 5px;
-    color: black;
+    color: #f1f1f1;
     text-transform: uppercase;
     border-color: #262626;
     font-size: 12px;
@@ -136,6 +136,5 @@ p{
     background-color: transparent;
     color: #33CC99;
     text-decoration: none;
-    font-size: 15px;
     letter-spacing: 7px;
 }
