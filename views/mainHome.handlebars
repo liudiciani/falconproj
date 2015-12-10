@@ -21,11 +21,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">Home</a>
+     <!-- <a class="navbar-brand" href="/">Home</a> -->
     </div>
 
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
+        <li><a href="/">home</a></li>
         <li><a href="/user/about/">About</a></li>
         <li><a href="/user/team">Team</a></li>
       </ul>
@@ -39,20 +40,27 @@
     <div class="col-sm-12 toppane">
       <div class = "logo">
         <img src="/img/Drawing2.png" alt="logo">
-        <h4>The free & easy answer to all lost items</h4>
+        <h5>The free & easy answer to all lost items</h5>
       </div>
 
-      <h5>Find something?</h5>
-      <p>Enter ID here:</p>
-      <form method="get" action="/user/user-profile/">
-        <input type="text" name="uurl"><button type="button" class="btn idButton btn-sm">Contact Owner</button>
-      </form>
+      <div class = "search">
+        <h5>Find something?</h5>
+
+
+        <p>Enter ID here:</p>
+        <form method="get" action="/user/user-profile/">
+          <input type="text" name="uurl">&nbsp;<button>C O N T A C T &nbsp; O W N E R</button>
+        </form>
+
+      </div>
 
     </div>
     </div>
+
    <div class = "buttons">
     {{message}}<br>
       <a href="/user/login"> <button type="button" class="btn loginButton btn">L O G I N</button></button></a><br>
+      <br>
       <a href="/user/signup"> <button type="button" class="btn  signupButton btn">S I G N  U P</button> </a>
 
 

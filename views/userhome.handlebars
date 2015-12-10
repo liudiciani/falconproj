@@ -27,16 +27,25 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-      {{#if isAdmin}}
-           <li><a href="/user/admin">Admin Home</a></li>
-      {{/if}}
-        <li class="active"><a href="/user/userhome/">Home</a></li>
+      {{#if isLoggedIn}}
+            {{#if isAdmin}}
+                 <li><a href="/user/admin">Admin Home</a></li>
+                 <li><a href="/user/userhome">Personal Home</a></li>
+            {{else}}
+                 <li><a href="/user/userhome/">Home</a></li>
+            {{/if}}
         <li><a href="/user/about/">About</a></li>
         <li><a href="/user/team">Team</a></li>
-        <li><a href="/user/user-profile">Profile</a></li>
+        <li class = "active"><a href="/user/about/user-profile">Profile</a></li>
+        {{else}}
+                <li><a href="/">Home</a></li>
+     {{/if}}
+
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        {{#if isLoggedIn}}
         <li><a href="/user/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        {{/if}}
       </ul>
     </div>
   </div>
@@ -58,9 +67,10 @@
 <!------------------------------| UPPER |------------------------------->
     <div class="col-sm-8 upper">
       <h1>Welcome back, {{fname}}!</h1>
+      <hr>
     </div>
 <!------------------------------| LOWER |------------------------------->
-    <div class = "col-sm-6 lower">
+    <div class = "col-sm-8 lower">
            <h5>Here is a summary of your personal information.</h5>
                 <center>
                 <table>

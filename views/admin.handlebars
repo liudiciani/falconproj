@@ -10,8 +10,6 @@
           href="/stylesheets/userhome.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-
 </head>
 <body>
 
@@ -42,37 +40,45 @@
 <div class="container-fluid text-center">
   <div class="row content">
     <div class="col-sm-4 sidenav">
-    <center>
-                <h4>Here is a summary of your personal information.</h4>
-                <p>
-                <table>
-                    <tr>
-                    <td>
-                      Name:
-                    </td>
-                    <td>
-                      {{name}}
-                    </td>
-                    </td>
-                    <tr>
-                      <td>
-                        Email:
-                      </td>
-                      <td>
-                        {{email}}
-                      </td>
-                      </tr>
-                    <tr>
-                      <td>
-                        Unique URL:
-                      </td>
-                      <td>
-                        {{uurl}}
-                      </td>
-                    </tr>
-                </table>
-                </p>
-        </center>
+    <h5>Here is a summary of your personal information.</h5>
+                    <center>
+                    <table>
+                          <tr>
+                            <td>
+                              <span style="color:#33CC99">N A M E :</span>
+                            </td>
+                            <td>
+                              {{name}} </span>
+                          </tr>
+                          <tr>
+                            <td>
+                             <span style="color:#33CC99"> E M A I L :</span>
+                            </td>
+                            <td>
+                              {{email}}
+                            </td>
+                          </tr>
+                           <tr>
+                             <td>
+                               <span style="color:#33CC99">P H O N E :</span>
+                             </td>
+                             <td>
+                               {{phone}}
+                             </td>
+                           </tr>
+                            <tr>
+                             <td>
+                               <span style="color:#33CC99">U R L :</span>
+                             </td>
+                             <td>
+                               {{uurl}}
+                             </td>
+                           </tr>
+                          </tr>
+                          </tr>
+                        </table>
+                    </p>
+            </center>
 
     <a href="/user/user-profile"> <button type="button" class="btn btn-default btn-lg">View Profile</button></button></a>
     </div>
@@ -83,10 +89,11 @@
 </div>
       <div class="col-sm-8 lower">
       <center>
-                  <h4>Customer database:</h4>
+                  <h5>Here is a summary of the customer database.</h5>
                   <p>
                  <table>
                    <tr>
+                   <rh>
                      <td>
                        UID:
                      </td>
@@ -110,7 +117,8 @@
                      </td>
                      <td>
                        phone:
-                     </td>
+                     </th>
+                     </span>
                    </tr>
                    {{#each users}}
                      <tr>

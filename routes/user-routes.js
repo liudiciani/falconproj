@@ -319,7 +319,6 @@ var online = require('../lib/online').online;
     router.get('/userhome', function(req, res) {
       // Grab the user session if it exists:
       var user = req.session.user;
-      var isAdmin = (user.admin === 'yes');
 
       // If no session, redirect to mainHome.
       if (!user) {
@@ -337,11 +336,12 @@ var online = require('../lib/online').online;
           message : message,
           fname    : user.fname ,
           admin: user.admin,
-          name: user.fname+user.lname,
+          name: user.fname+" "+user.lname,
           email:user.email,
           uurl: user.uurl,
-          isAdmin: isAdmin,
-          phone: user.phone
+          isAdmin: (user.admin === 'yes'),
+          phone: user.phone,
+          isLoggedIn: true
           });
       }
     });
@@ -510,6 +510,7 @@ router.get('/admin', (req, res) => {
               message: 'Thanks for finding our users item!',
               name: result.uuid.fname + ' ' + result.uuid.lname,
               email: result.uuid.email,
+              phone: result.uuid.phone,
               isAdmin:isAdmin,
               isLoggedIn:isLoggedIn
             })

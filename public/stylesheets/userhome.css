@@ -2,6 +2,7 @@
     .navbar {
       margin-bottom: 0;
       border-radius: 0;
+      border-bottom: none;
     }
 
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
@@ -54,4 +55,11 @@
 h5{
     text-transform: uppercase;
     letter-spacing: 5px;
+}
+
+
+table th{
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #33CC99;
 }

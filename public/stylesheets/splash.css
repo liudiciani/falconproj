@@ -2,29 +2,33 @@
     .navbar {
       margin-bottom: 0;
       border-radius: 0;
+      border-bottom: none;
+    }
+
+    .navbar a:hover{
+        letter-spacing: 7px;
     }
 
     /* Set height of the grid so .toppane can be 100% (adjust as needed) */
-    .row.content {height: 350px;}
+    .row.content {height: 500px;}
     .row.buttons {height: 200px;}
 
     /* Set gray background color and 100% height */
     .toppane{
       padding-top: 20px;
-      background-color: #555;
+      background-color: #333333;
       height: 100%;
     }
 
     .logo{
-        padding-top: 50px;
+        padding-top: 150px;
         padding-bottom: 15px;
     }
-
 
     /* Set black background color, white text and some padding */
     footer {
       background-color: #f1f1f1;
-      color: #555;
+      color: #333333;
       padding: 15px;
     }
 
@@ -40,28 +44,22 @@
     }
 
 .buttons{
-    margin: 40px;
+    padding: 10px;
+    padding-bottom: 30px;
 }
 
-
-.lowpane{
-    margin: 50px;
-    color: black;
-    }
 
 .buttons .btn{
-    width: 200px;
+    width: 400px;
 }
 
-.loginButton:hover {
-  background-color: black;
+.loginButton:hover, .signupButton:hover {
+  background-color: #333333;
   color: #33CC99;
+  letter-spacing: 7px;
 }
 
-.signupButton:hover {
-  background-color: black;
-  color: #FF3300;
-}
+
 
 .loginButton{
     color: white;
@@ -70,13 +68,22 @@
 
 .signupButton{
     color: white;
-    background-color: #FF3300;
+    background-color: black;
+     <!--#FF3300;-->
 }
 
 .idButton{
-    color: white;
-    background-color: #202020;
+    color: black;
+    background-color: transparent;
+    border-color: black;
 }
+
+.idButton:hover{
+    color: black;
+    font-weight: bold;
+    background-color: #555;
+}
+
 
 
 h4{
@@ -90,6 +97,17 @@ h5{
 }
 
 p{
-    color: #202020;
+    color: #555;
     margin-bottom: 0px;
+    font-weight: bold;
+}
+
+.search{
+    padding-top: 20px;
+}
+
+body{
+
+    text-transform: uppercase;
+    letter-spacing: 5px;
 }
