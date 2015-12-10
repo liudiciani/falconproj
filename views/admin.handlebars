@@ -26,10 +26,10 @@
       <ul class="nav navbar-nav">
       {{#if isLoggedIn}}
             {{#if isAdmin}}
-                 <li><a href="/user/admin">Admin Home</a></li>
-                 <li class="active"><a href="/user/userhome">Personal Home</a></li>
+                 <li class = "active"><a href="/user/admin">Admin Home</a></li>
+                 <li><a href="/user/userhome">Personal Home</a></li>
             {{else}}
-                 <li class="active"><a href="/user/userhome/">Home</a></li>
+                 <li><a href="/user/userhome/">Home</a></li>
             {{/if}}
 
      {{else}}

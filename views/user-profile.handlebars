@@ -26,9 +26,9 @@
       {{#if isLoggedIn}}
             {{#if isAdmin}}
                  <li><a href="/user/admin">Admin Home</a></li>
-                 <li class="active"><a href="/user/userhome">Personal Home</a></li>
+                 <li><a href="/user/userhome">Personal Home</a></li>
             {{else}}
-                 <li class="active"><a href="/user/userhome/">Home</a></li>
+                 <li><a href="/user/userhome/">Home</a></li>
             {{/if}}
 
      {{else}}
@@ -40,7 +40,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         {{#if isLoggedIn}}
-        <li><a href="/user/user-profile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+        <li class = "active"><a href="/user/user-profile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
         <li><a href="/user/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
         {{/if}}
       </ul>
