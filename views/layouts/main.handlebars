@@ -30,24 +30,24 @@
       <ul class="nav navbar-nav">
       {{#if isLoggedIn}}
             {{#if isAdmin}}
-                 <li><a href="/user/admin"><span class="glyphicon glyphicon-lock"></span> Admin Dash</a></li>
-                 <li><a href="/user/userhome"><span class="glyphicon glyphicon-home"></span> My Home</a></li>
+                 <li><a href="/admin"><span class="glyphicon glyphicon-lock"></span> Admin Dash</a></li>
+                 <li><a href="/userhome"><span class="glyphicon glyphicon-home"></span> My Home</a></li>
             {{else}}
-                 <li><a href="/user/userhome"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                 <li><a href="/userhome"><span class="glyphicon glyphicon-home"></span> Home</a></li>
             {{/if}}
 
      {{else}}
      <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
      {{/if}}
-     <li><a href="/user/about"><span class="glyphicon glyphicon-question-sign"></span> About</a></li>
-     <li><a href="/user/team"><span class="glyphicon glyphicon-heart-empty"></span> Team</a></li>
+     <li><a href="/about"><span class="glyphicon glyphicon-question-sign"></span> About</a></li>
+     <li><a href="/team"><span class="glyphicon glyphicon-heart-empty"></span> Team</a></li>
 
 
       </ul>
       <ul class="nav navbar-nav navbar-right">
         {{#if isLoggedIn}}
-        <li><a href="/user/user-profile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
-        <li><a href="/user/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        <li><a href="/user-profile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+        <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
         {{/if}}
       </ul>
     </div>

@@ -90,12 +90,10 @@ app.use(flash());
 
 
 // This adds the external router defined routes to the app.
-// Note: this includes a prefix to each of those routes.
-//       Example: /user/login, /user/logout, ...
-app.use('/user', require('./routes/user-routes'));
+app.use('', require('./routes/user-routes'));
 
 app.get('/', (req, res) => {
-  res.redirect('/user/mainHome');
+  res.redirect('/mainHome');
 });
 
 var model = require('./lib/user');

@@ -28,11 +28,11 @@ var online = require('../lib/online').online;
         //check if user is an admin. If so, redirect to AdminHome, if not redirect to User Home
           if(user.admin === 'yes'){
               req.flash('admin','You are now logged in as an admin.');
-              res.redirect('/user/admin');
+              res.redirect('/admin');
           }
           else{
               req.flash('userhome','Welcome to your user home.');
-              res.redirect('/user/userhome');
+              res.redirect('/userhome');
           }
         }
         else {//if user is not logged in, render the mainHome page
@@ -55,10 +55,10 @@ var online = require('../lib/online').online;
            //if user is an admin, redirect to admin home, else redirect to userhome.
            if (user && online[user.email]) {
                if(user.admin === 'yes'){
-                res.redirect('/user/admin');
+                res.redirect('/admin');
               }
               else {
-                res.redirect('/user/userhome');
+                res.redirect('/userhome');
               }
             }
              else {
@@ -85,10 +85,10 @@ var online = require('../lib/online').online;
           //if user is an admin, redirect to admin home, else redirect to userhome.
           if (user && online[user.email]) {
               if(user.admin === 'yes'){
-                res.redirect('/user/admin');
+                res.redirect('/admin');
               }
               else {
-                res.redirect('/user/userhome');
+                res.redirect('/userhome');
               }
           }
           else {
@@ -98,14 +98,14 @@ var online = require('../lib/online').online;
 
               if (!email || !pass) {
                 req.flash('login', 'did not provide the proper credentials');
-                res.redirect('/user/login');
+                res.redirect('/login');
               }
               else {
                 model.lookup(email, pass, function(error, user) {
                   if (error) {
                     // Pass a message to login:
                     req.flash('login', error);
-                    res.redirect('/user/login');
+                    res.redirect('/login');
                   }
                   else {
                     // add the user to the map of online users:
@@ -120,12 +120,12 @@ var online = require('../lib/online').online;
                     if(user.admin === 'yes'){
                       // Pass a message to admin home:
                       req.flash('admin', 'authentication successful');
-                      res.redirect('/user/admin');
+                      res.redirect('/admin');
                     }
                     else{
                       // Pass a message to user home:
                       req.flash('userhome', 'authentication successful');
-                      res.redirect('/user/userhome');
+                      res.redirect('/userhome');
                     }
                   }
                 });
@@ -158,7 +158,7 @@ var online = require('../lib/online').online;
 
           // Redirect to mainHome page regardless.
           req.flash('mainHome','Successful log out.')
-          res.redirect('/user/mainHome');
+          res.redirect('/mainHome');
     });
 
 
@@ -216,18 +216,18 @@ var online = require('../lib/online').online;
 
           if(!fname || !password || !lname || !phone || !email ){
               req.flash('signup','did not complete the information');
-              res.redirect('/user/signup');
+              res.redirect('/signup');
           }
           else{
             var uurl = url_generator.generateURL();
             model.add({fname,lname,phone,email,password,uurl,admin},function(error,newUser){
             if(error){
               req.flash('signup',error);
-              res.redirect('/user/signup');
+              res.redirect('/signup');
             }
             else{
               req.flash('login','User Addition Successful!');
-              res.redirect('/user/login');
+              res.redirect('/login');
             }
           });
         }
@@ -279,7 +279,7 @@ var online = require('../lib/online').online;
               model.search(uurl,function(error,userSearched){
                 if(error){
                   req.flash('mainHome','No user found with that unique URL');
-                  res.redirect('/user/mainHome');
+                  res.redirect('/mainHome');
                 }
                 else{
                   res.render('user-profile', {
@@ -299,7 +299,7 @@ var online = require('../lib/online').online;
             model.search(uurl,function(error,user){
                 if(error){
                   req.flash('mainHome','No user found with that unique URL');
-                  res.redirect('/user/mainHome');
+                  res.redirect('/mainHome');
                 }
                 else{
                   res.render('user-profile', {
@@ -336,12 +336,12 @@ var online = require('../lib/online').online;
       // If no session, redirect to mainHome.
       if (!user) {
         req.flash('mainHome', 'Not logged in');
-        res.redirect('/user/mainHome');
+        res.redirect('/mainHome');
       }
       else if (user && !online[user.email]) {
         req.flash('login', 'Login Expired');
         delete req.session.user;
-        res.redirect('/user/login')
+        res.redirect('/login')
       }
       else {
         var message = req.flash('userhome') || 'Welcome back';
@@ -368,15 +368,15 @@ router.get('/admin', (req, res) => {
 
       if (!user) {
         req.flash('mainHome', 'Not logged in');
-        res.redirect('/user/mainHome');
+        res.redirect('/mainHome');
       }
       else if (user && !online[user.email]) {
         req.flash('login', 'Login Expired');
         delete req.session.user;
-        res.redirect('/user/login')
+        res.redirect('/login')
       }
       else if (user && online[user.email] && user.admin === 'no') {
-        res.redirect('/user/userhome');
+        res.redirect('/userhome');
       }
       else {//if the user session exists, user is logged in, and user is an admin.
         model.list(function (error, userList) {
@@ -547,7 +547,7 @@ router.get('/admin', (req, res) => {
 //
 //  // Redirect to main if session and user is online:
 //  if (user && online[user]) {
-//    res.redirect('/user/main');
+//    res.redirect('/main');
 //  }
 //  else {
 //    // Pull the values from the form:
@@ -556,14 +556,14 @@ router.get('/admin', (req, res) => {
 //
 //    if (!name || !pass) {
 //      req.flash('login', 'did not provide the proper credentials');
-//      res.redirect('/user/login');
+//      res.redirect('/login');
 //    }
 //    else {
 //      model.lookup(name, pass, function(error, user) {
 //        if (error) {
 //          // Pass a message to login:
 //          req.flash('login', error);
-//          res.redirect('/user/login');
+//          res.redirect('/login');
 //        }
 //        else {
 //          // add the user to the map of online users:
@@ -574,7 +574,7 @@ router.get('/admin', (req, res) => {
 //
 //          // Pass a message to main:
 //          req.flash('main', 'authentication successful');
-//          res.redirect('/user/main');
+//          res.redirect('/main');
 //        }
 //      });
 //    }
@@ -594,7 +594,7 @@ router.get('/admin', (req, res) => {
 //  // If no session, redirect to login.
 //  if (!user) {
 //    req.flash('login', 'Not logged in');
-//    res.redirect('/user/login');
+//    res.redirect('/login');
 //  }
 //  else {
 //    res.render('online', {
