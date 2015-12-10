@@ -108,6 +108,8 @@ app.get('/:uuid', (req, res) => {
       message: 'Thanks for finding our user\'s item!',
       name: data.fname + ' ' + data.lname,
       email: data.email,
+      phone: data.phone,
+      contact_info: data.contact_info
     })
   }})});
 
