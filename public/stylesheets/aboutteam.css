@@ -1,0 +1,73 @@
+   /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+      border-bottom: none;
+    }
+
+    /* Set height of the grid so .toppane can be 100% (adjust as needed) */
+    .row.content {height: 200px;}
+
+    /* Set gray background color and 100% height */
+    .toppane{
+      padding: 50px;
+      background-color: #333333;
+      height: 100%;
+
+    }
+
+
+    /* On small screens, set height to 'auto' for leftpane and grid */
+    @media screen and (max-width: 767px) {
+      .toppane{
+        height: auto;
+        padding: 15px;
+      }
+
+      .row.content {height:auto;}
+    }
+/***********************************| BOTH |**************************************/
+h1{
+    color: white;
+}
+
+.panel-group{
+   padding-left: 20%;
+   padding-right: 20%;
+   padding-top: 15px;
+
+}
+
+.panel-heading{
+    text-transform: uppercase;
+    letter-spacing: 4px;
+
+    color: white;
+}
+
+
+.panel-body{
+    text-transform: none;
+    letter-spacing: 1px;
+    font-family: "Arial", helvetica, serif;
+}
+
+.panel:hover{
+    background-color: #f1f1f1;
+    color:black;
+    font-weight: bold;
+    font-size: 25px;
+    letter-spacing: 0px;
+    }
+
+
+/***********************************| ABOUT |**************************************/
+
+.about .panel-heading{
+    background-color: #33CC99;
+}
+
+/***********************************| TEAM |**************************************/
+.team .panel-heading{
+    background-color: #FF3300;
+}

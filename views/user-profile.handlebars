@@ -11,82 +11,83 @@
   <link rel="stylesheet"
           type="text/css"
           href="/stylesheets/user-profile.css">
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
+
+
+
 <body>
-
-
 <div class="container-fluid text-center">
   <div class="row content">
     <div class="col-sm-12 toppane">
       <div class = "banner">
         <h1>Thanks for visiting <br>my
         <span style="color:#33CC99"><span style="letter-spacing:0px">found</span></span><span style="color:black"><span style="letter-spacing:0px">it</span></span> page!</h1>
-        <p><span style="color:black">W H A T &nbsp;&nbsp;I S &nbsp;&nbsp;F O U N D I T &nbsp;?&nbsp;&nbsp;</span>
-        foundit helps strangers return your lost items. when you sign up,
-        you are given a unique url that is linked to your account.
-         the url is short enough that you can write it anywhere.
-         the url retains your privacy while making it easier for
-         people to contact you regarding your lost item. visit the
-          <a href="/user/about/">about page</a> to learn more or
-          the <a href="/user/signup">signup page</a> to set up your very
-          own foundit account today</p>
-
       </div>
-
-
     </div>
     </div>
+
+<!--------------------------------| LOWER |--------------------------------------->
     <div class = "lowpane">
-     <h2>C O N T A C T&nbsp;&nbsp;<span style="color:#33CC99">M E</span></h2>
-     <p>please use the information below to contact me about my item</p>
+     <h1>Contact&nbsp;<span style="color:#33CC99">Me</span></h1>
+     <h4>please use the information below to contact me about my item</h4>
      <br>
-    <div class = "col-sm-6 col-sm-offset-3">
-    <table>
-      <tr>
-        <td>
-          <span style="color:#33CC99">N A M E :</span>
-        </td>
-        <td>
-          {{name}}
-      </tr>
-      <tr>
-        <td>
-         <span style="color:#33CC99"> E M A I L :</span>
-        </td>
-        <td>
-          {{email}}
-        </td>
-      </tr>
-       <tr>
-         <td>
-           <span style="color:#33CC99">P H O N E :</span>
-         </td>
-         <td>
-           {{phone}}
-         </td>
-       </tr>
-      </tr>
-      </tr>
-    </table>
-    </div>
-    </div>
+
+                 <div class="table">
+                                 <center>
+                                 <table>
+                                       <tr>
+                                         <td>
+                                           <span class = "header">name:</span>
+                                         </td>
+                                         <td>
+                                           <p>{{name}}</p>
+                                       </tr>
+                                       <tr>
+                                         <td>
+                                          <span class = "header">email:</span>
+                                         </td>
+                                         <td>
+                                           <p>{{email}}</p>
+                                         </td>
+                                       </tr>
+                                        <tr>
+                                          <td>
+                                            <span class = "header">phone:</span>
+                                          </td>
+                                          <td>
+                                            <p>{{phone}}</p>
+                                          </td>
+                                        </tr>
+                                       </tr>
+                                       </tr>
+                                     </table>
+                                 </p>
+                         </center>
+                    </div>
+
+
+       </div>
 
     <br><br>
 
 
     <div class="form-group col-sm-4 col-sm-offset-4">
-      <label for="comment"><p>or enter your own customized message in the field below</p></label>
+      <label for="comment"><h5>or enter your own customized message:</h5></label>
       <textarea class="form-control" rows="5" id="comment"></textarea>
     </div>
 
+
+
+
 </div>
 
-<footer class="container-fluid text-center">
-  <p>Copyright &copy 2015 by Falcons</p>
-</footer>
 
+ <div class = "button">
+          <center>
+          <a href="/user/userhome"> <button type="button" class="btn about btn-default btn-lg">What is foundit?</button></button></a>
+          </center>
+          </div>
 </body>
 </html>

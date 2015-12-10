@@ -10,71 +10,66 @@
           href="/stylesheets/loginsignup.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-
 </head>
+
 <body>
-
-
-
+<!-----------------------------------| TOP PANE |------------------------------------>
 <div class="container-fluid text-center">
   <div class="row content">
     <div class="col-sm-12 toppane">
-      <h4>Please enter the required fields to register for your very own FoundIt page!<br>
+      <h4>Please enter the required fields to register for your very own <span style="color:#33CC99">Found</span><span style="color:#f1f1f1">It</span> page!<br>
       You will use this email/password combination to access your account.<br></h4>
     </div>
   </div>
-  <div class="loginform">
-    {{message}}<br>
 
-
+<!-----------------------------------| FORMS |---------------------------------------->
+   <div class="form">
+    {{message}}
     <form class="form-horizontal" role="form" method="post" action="/user/add">
       <div class="form-group">
-        <label class="control-label col-sm-2 col-sm-offset-2" for="first">F I R S T :</label>
+        <label class="control-label col-sm-2 col-sm-offset-2" for="first">first:</label>
         <div class="col-sm-4">
           <input type="text" class="form-control" name="first" placeholder="Tim">
         </div>
       </div>
 
       <div class="form-group">
-        <label class="control-label col-sm-2 col-sm-offset-2" for="last">L A S T :</label>
+        <label class="control-label col-sm-2 col-sm-offset-2" for="last">last:</label>
         <div class="col-sm-4">
           <input type="text" class="form-control" name="last" placeholder="Richards">
         </div>
       </div>
 
       <div class="form-group">
-        <label class="control-label col-sm-2 col-sm-offset-2" for="phone">P H O N E :</label>
+        <label class="control-label col-sm-2 col-sm-offset-2" for="phone">phone:</label>
         <div class="col-sm-4">
-          <input type="text" class="form-control" name="phome" placeholder="5555555555">
+          <input type="text" class="form-control" name="phone" placeholder="5555555555">
         </div>
       </div>
 
       <div class="form-group">
-        <label class="control-label col-sm-2 col-sm-offset-2" for="email">E M A I L :</label>
+        <label class="control-label col-sm-2 col-sm-offset-2" for="email">email:</label>
         <div class="col-sm-4">
           <input type="text" class="form-control" name="email" placeholder="tdr@umass.edu">
         </div>
       </div>
 
       <div class="form-group">
-        <label class="control-label col-sm-2 col-sm-offset-2" for="pwd">P A S S W O R D :</label>
+        <label class="control-label col-sm-2 col-sm-offset-2" for="pwd">password:</label>
         <div class="col-sm-4">
           <input type="password" class="form-control" name="pass" placeholder="***********">
         </div>
       </div>
 
+<!-----------------------------------| BUTTON |------------------------------------->
 
       <div class="form-group">
-          <button type="submit" class="btn submitButton btn">S I G N   U P !</button>
+          <button type="submit" class="btn submitButton btn">signup!</button>
       </div>
     </form>
     </div>
 </div>
 
-<footer class="container-fluid text-center">
-  <p>Copyright &copy 2015 by Falcons</p>
-</footer>
 
 </body>
 </html>

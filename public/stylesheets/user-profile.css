@@ -1,20 +1,21 @@
+   /*-----------------------------| NAV BAR |-----------------------------------*/
    /* Remove the navbar's default margin-bottom and rounded borders */
     .navbar {
       margin-bottom: 0;
       border-radius: 0;
-
       border-bottom: none;
     }
 
+    /*----------------------------| TOP PANE |-----------------------------------*/
     /* Set height of the grid so .toppane can be 100% (adjust as needed) */
     .row.content {
-        height: 50%;
+        height: 200px;
         }
 
     /* Set gray background color and 100% height */
     .toppane{
-      padding-top: 20px%;
-      background-color: #555;
+      padding: 20px;
+      background-color: #333333;
       height: 100%;
 
     }
@@ -26,15 +27,6 @@
 
     }
 
-
-    /* Set black background color, white text and some padding */
-    footer {
-      background-color: #f1f1f1;
-      color: #555;
-      padding: 15px;
-      margin-top: 100px;
-    }
-
     /* On small screens, set height to 'auto' for leftpane and grid */
     @media screen and (max-width: 767px) {
       .toppane, .lowpane {
@@ -44,53 +36,106 @@
       .row.content {height:auto;}
     }
 
-table{
-    width: 100%;
-    margin-bottom: 20px;
-    text-align: center;
+
+    .toppane h1{
+        text-transform: uppercase;
+        letter-spacing: 7px;
+        color: white;
     }
 
-tr td {
-    font-weight: bold;
-    padding: 10px;
+/*----------------------------| LOW PANE |------------------------------*/
+.lowpane{
+    margin-top: 50px;
+}
 
+ .lowpane h1{
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    color: black;
 }
 
 
-tr:hover{
+
+/*----------------------------| TABLE |----------------------------------*/
+td, tr{
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+
+.table tr:hover{
     background-color: #f1f1f1;
-    }
+}
+
+
+
+
+
+.form-control{
+    margin-top: 0px;
+    background: #f1f1f1;
+}
+
+/*--------------------------------| TEXT |---------------------------------------*/
+
+
+.header{
+    text-transform: uppercase;
+    color: #33CC99;
+    letter-spacing: 5px;
+
+}
 
 h1, h2, h3, h4, p{
     margin-bottom: 0;
 }
 
-h1{
+
+
+h2{
     text-transform: uppercase;
     letter-spacing: 7px;
-    color: white;
+    color: black;
+    font-weight: bold;
 }
 
-
-h5{
-    color: #FF3300;
-}
 
 p{
     color: black;
-    font-variant: small-caps;
+    text-transform: none;
 
 }
 
-a{
+/*---------------------------------| BUTTON |-----------------------------*/
+
+
+.button{
+    margin-top: 20px;
+    text-align: center;
+
+
+
+}
+
+.about{
+    top-margin: 5px;
+    background-color: transparent;
+    width: 300px;
+    letter-spacing: 5px;
     color: black;
+    text-transform: uppercase;
+    border-color: #262626;
+    font-size: 12px;
 }
 
-a:hover{
-    color: #202020;
-}
-
-.form-control{
-    margin-top: 0px;
-    background: #f1f1f1;
+.about:hover{
+    border-color: white;
+    background-color: transparent;
+    color: #33CC99;
+    text-decoration: none;
+    font-size: 15px;
+    letter-spacing: 7px;
 }

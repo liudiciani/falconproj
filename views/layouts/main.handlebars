@@ -32,8 +32,8 @@
       <ul class="nav navbar-nav">
       {{#if isLoggedIn}}
             {{#if isAdmin}}
-                 <li><a href="/user/admin"><span class="glyphicon glyphicon-lock"></span> Admin Dashboard</a></li>
-                 <li><a href="/user/userhome"><span class="glyphicon glyphicon-home"></span> Personal Home</a></li>
+                 <li><a href="/user/admin"><span class="glyphicon glyphicon-lock"></span> Admin Dash</a></li>
+                 <li><a href="/user/userhome"><span class="glyphicon glyphicon-home"></span> My Home</a></li>
             {{else}}
                  <li><a href="/user/userhome"><span class="glyphicon glyphicon-home"></span> Home</a></li>
             {{/if}}
@@ -57,4 +57,12 @@
 </nav>
 
 {{{body}}}
+
+
+
+<footer class="container-fluid text-center">
+  <p>Copyright &copy 2015 by Falcons</p>
+</footer>
+
+
 </html>

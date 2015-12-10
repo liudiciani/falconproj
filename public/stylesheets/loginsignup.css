@@ -1,3 +1,5 @@
+
+   /*-----------------------------|NAV BAR |-------------------------------*/
    /* Remove the navbar's default margin-bottom and rounded borders */
     .navbar {
       margin-bottom: 0;
@@ -5,21 +7,15 @@
       border-bottom: none;
     }
 
+   /*-----------------------------| TOP PANE |-------------------------------*/
     /* Set height of the grid so .toppane can be 100% (adjust as needed) */
     .row.content {height: 200px;}
 
     /* Set gray background color and 100% height */
     .toppane{
       padding: 100px;
-      background-color: #555;
+      background-color: #333333;
       height: 100%;
-    }
-
-    /* Set black background color, white text and some padding */
-    footer {
-      background-color: #f1f1f1;
-      color: #555;
-      padding: 15px;
     }
 
     /* On small screens, set height to 'auto' for leftpane and grid */
@@ -32,24 +28,44 @@
       .row.content {height:auto;}
     }
 
+/*-------------------------------| BUTTONS |-----------------------------------*/
+
 .btn{
     width: 200px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
 }
-
-.submitButton:hover {
-  background-color: black;
-  color: #33CC99;
-}
-
 
 .submitButton{
     color: white;
     background-color: #33CC99;
 }
 
+.submitButton:hover {
+  background-color: black;
+  color: #33CC99;
+  letter-spacing: 8px;
+}
 
-h4, h5{
+
+
+/*-----------------------------------| TEXT |------------------------------------*/
+
+h4{
     margin-bottom: 0;
     color: white;
 }
 
+.control-label{
+    letter-spacing: 5px;
+}
+
+/*-----------------------------------| FOOTER |----------------------------------*/
+footer{
+    margin-top: 450px;
+}
+
+
+.form{
+    padding-top: 20px;
+}

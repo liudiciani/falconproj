@@ -1,3 +1,4 @@
+   /*-----------------------------| NAV BAR |-------------------------------*/
    /* Remove the navbar's default margin-bottom and rounded borders */
     .navbar {
       margin-bottom: 0;
@@ -5,51 +6,95 @@
       border-bottom: none;
     }
 
+    /*-----------------------------| SIDE PANE OF USER |----------------------------*/
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
     .row.content {
-        height: 400px
+        height: 600px
     }
 
     /* Set gray background color and 100% height */
     .sidenav {
-      padding-top: 75px;
-      background-color: #555;
+      padding-top: 200px;
+      background-color: #333333;
       height: 100%;
       color: white;
     }
 
-    /* Set black background color, white text and some padding */
-    footer {
-      background-color: #f1f1f1;
-      color: #555;
-      padding: 15px;
+/*-----------------------------| SIDE PANE OF ADMIN |----------------------------*/
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {
+        height: 600px
+    }
+
+    /* Set gray background color and 100% height */
+    .adminsidenav {
+      padding-top: 75px;
+      background-color: #333333;
+      height: 100%;
+      color: white;
     }
 
     /* On small screens, set height to 'auto' for sidenav and grid */
     @media screen and (max-width: 767px) {
-      .sidenav {
+      .adminsidenav {
         height: auto;
         padding: 15px;
       }
       .row.content {height:auto;}
     }
 
+/*-------------------------------| UPPER CONTENT |-------------------------------*/
 .upper{
     background-color: white;
     color: black;
     text-align: left;
     }
 
+/*-------------------------------| LOWER CONTENT |-------------------------------*/
 .lower{
     color: black;
     text-align: center;
-    button-color: black;
+    margin-top: 30px;
     }
 
 
-.btn-lg{
+/*-------------------------------| BUTTONS |-------------------------------*/
+
+
+.btn{
+    top-margin: 5px;
+    background-color: transparent;
+    width: 300px;
+    letter-spacing: 5px;
     color: white;
-    background-color: #CC0000;
+    text-transform: uppercase;
+}
+
+.btn:hover{
+    border-color: #33CC99;
+    background-color: transparent;
+    color:white;
+}
+
+.signup{
+    color: black;
+    border-color: #FF3300;
+    background-color: transparent;
+}
+
+.signup:hover{
+    border-color: black;
+    color: black;
+    }
+
+.sidenav .viewprofile{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/*---------------------------------| TEXT |--------------------------------*/
+h1{
+    text-transform: none;
 }
 
 h5{
@@ -57,9 +102,106 @@ h5{
     letter-spacing: 5px;
 }
 
-
-table th{
+h4{
     text-transform: uppercase;
     letter-spacing: 5px;
+
+}
+/*------------------------------| BOTH TABLES |------------------------------*/
+td, tr{
+    padding: 10px;
+}
+
+th{
+    text-align: center;
+    }
+
+/*-------------------------------| HOME TABLE |-------------------------------*/
+
+
+.hometable{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+
+.hometable tr:hover{
+    background-color: #262626;
+}
+
+p{
+    margin: 0px;
+    text-transform: none;
+}
+
+.header{
+    text-transform: uppercase;
     color: #33CC99;
+    letter-spacing: 5px;
+
+}
+
+/*-----------------------------| USERHOME TABLE |-------------------------------*/
+
+
+.userhometable{
+    padding: 30px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+
+.userhometable tr:hover{
+    background-color: #f1f1f1;
+}
+
+p{
+    margin: 0px;
+    text-transform: none;
+}
+
+.header{
+    text-transform: uppercase;
+    color: #33CC99;
+    letter-spacing: 5px;
+
+}
+
+
+/*-------------------------------| ADMIN TABLE |-------------------------------*/
+
+.admintable{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+
+.admintable tr:hover{
+    background-color: #f1f1f1;
+    color: black;
+}
+
+p{
+    margin: 0px;
+    text-transform: none;
+}
+
+thead{
+    background-color: #FF3300;
+    color: white;
+}
+
+tbody{
+    text-align: center;
+    text-transform: none;
+    letter-spacing: 1px;
+}
+
+thead th{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+
 }

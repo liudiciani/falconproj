@@ -11,45 +11,45 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
+
+<!------------------------------------| SIDE PANEL |--------------------------------->
 <body>
-
-
-
 <div class="container-fluid text-center">
   <div class="row content">
-    <div class="col-sm-4 sidenav">
+    <div class="col-sm-4 adminsidenav">
     <h5>Here is a summary of your personal information.</h5>
+    <div class="hometable">
                     <center>
                     <table>
                           <tr>
                             <td>
-                              <span style="color:#33CC99">N A M E :</span>
+                              <span class = "header">name:</span>
                             </td>
                             <td>
-                              {{name}} </span>
+                              <p>{{name}}</p>
                           </tr>
                           <tr>
                             <td>
-                             <span style="color:#33CC99"> E M A I L :</span>
+                             <span class = "header">email:</span>
                             </td>
                             <td>
-                              {{email}}
+                              <p>{{email}}</p>
                             </td>
                           </tr>
                            <tr>
                              <td>
-                               <span style="color:#33CC99">P H O N E :</span>
+                               <span class = "header">phone:</span>
                              </td>
                              <td>
-                               {{phone}}
+                               <p>{{phone}}</p>
                              </td>
                            </tr>
                             <tr>
                              <td>
-                               <span style="color:#33CC99">U R L :</span>
+                               <span class = "header">url:</span>
                              </td>
                              <td>
-                               {{uurl}}
+                               <p>{{uurl}}</p>
                              </td>
                            </tr>
                           </tr>
@@ -57,87 +57,62 @@
                         </table>
                     </p>
             </center>
+       </div>
 
-    <a href="/user/user-profile"> <button type="button" class="btn btn-default btn-lg">View Profile</button></button></a>
+    <a href="/user/userhome"><button type="button" class="btn btn-default">My Homepage</button></a><br><br><a href="/user/user-profile"><button type="button" class="btn btn-default">View Profile</button></a>
+
     </div>
+
+
+<!------------------------------------| UPPER CONTENT |------------------------------>
     <div class="col-sm-8 upper">
       <h1>Hello, {{fname}}!</h1>
+      <hr>
+    </div>
 
-<hr>
-</div>
-      <div class="col-sm-8 lower">
+<!------------------------------------| LOWER CONTENT |--------------------------------->
+ <div class="col-sm-8 lower">
       <center>
-                  <h5>Here is a summary of the customer database.</h5>
-                  <p>
-                 <table>
-                   <tr>
-                   <rh>
-                     <td>
-                       UID:
-                     </td>
-                     <td>
-                       fname:
-                     </td>
-                     <td>
-                       lname:
-                     </td>
-                     <td>
-                       email:
-                     </td>
-                     <td>
-                       password:
-                     </td>
-                     <td>
-                       distinct_url:
-                     </td>
-                     <td>
-                       admin:
-                     </td>
-                     <td>
-                       phone:
-                     </th>
-                     </span>
-                   </tr>
-                   {{#each users}}
-                     <tr>
-                       <td>
-                         {{uid}}
-                       </td>
-                       <td>
-                         {{fname}}
-                       </td>
-                       <td>
-                         {{lname}}
-                       </td>
-                       <td>
-                         {{email}}
-                       </td>
-                       <td>
-                         {{password}}
-                       </td>
-                       <td>
-                         {{uurl}}
-                       <td>
-                         {{admin}}
-                       </td>
-                       <td>
-                         {{phone}}
-                       </td>
-                     </tr>
-                     {{/each}}
-                 </table>
+      <h4>Here is a summary of the customer database.</h4>
+      <p>
+      <div class="admintable">
+      <table>
+          <thead>
+            <tr>
+              <th>uid</th>
+              <th>fname</th>
+              <th>lname</th>
+              <th>email</th>
+              <th>password</th>
+              <th>uurl</th>
+              <th>phone</th>
+              <th>admin</th>
+            </tr>
+          </thead>
+          <tbody>
+          {{#each users}}
+            <tr>
+              <td>{{uid}}</td>
+              <td>{{fname}}</td>
+              <td>{{lname}}</td>
+              <td>{{email}}</td>
+              <td>{{password}}</td>
+              <td>{{uurl}}</td>
+              <td>{{phone}}</td>
+              <td>{{admin}}</td>
+            </tr>
+            {{/each}}
+          </tbody>
+          </table>
+        </div>
 
+      </div>
+<a href="/user/signup"><button type="button" class="btn signup btn-default">add a user</button></a>
 
-                  </p>
-          </center>
-
+      </center>
     </div>
   </div>
 </div>
-
-<footer class="container-fluid text-center">
-  <p>Copyright &copy 2015 by Falcons</p>
-</footer>
 
 </body>
 </html>

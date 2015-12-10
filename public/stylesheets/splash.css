@@ -1,17 +1,16 @@
-   /* Remove the navbar's default margin-bottom and rounded borders */
+
+   /*-----------------------------| NAV BAR |-------------------------------*/
+
+    /* Remove the navbar's default margin-bottom and rounded borders */
     .navbar {
       margin-bottom: 0;
       border-radius: 0;
       border-bottom: none;
     }
 
-    .navbar a:hover{
-        letter-spacing: 7px;
-    }
-
+    /*-----------------------------| TOP PANE |-------------------------------*/
     /* Set height of the grid so .toppane can be 100% (adjust as needed) */
     .row.content {height: 500px;}
-    .row.buttons {height: 200px;}
 
     /* Set gray background color and 100% height */
     .toppane{
@@ -20,78 +19,70 @@
       height: 100%;
     }
 
-    .logo{
-        padding-top: 150px;
-        padding-bottom: 15px;
-    }
-
-    /* Set black background color, white text and some padding */
-    footer {
-      background-color: #f1f1f1;
-      color: #333333;
-      padding: 15px;
-    }
-
     /* On small screens, set height to 'auto' for leftpane and grid */
     @media screen and (max-width: 767px) {
-      .toppane, .lowpane {
+      .toppane {
         height: auto;
         padding: 15px;
       }
 
       .row.content {height:auto;}
-      .row.buttons {height: auto;}
     }
+
+
+/*-------------------------------| LOGO |-----------------------------------*/
+    .logo{
+        padding-top: 100px;
+        padding-bottom: 60px;
+    }
+
+/*-------------------------------| BUTTONS |-----------------------------------*/
 
 .buttons{
     padding: 10px;
-    padding-bottom: 30px;
+    padding-bottom: 10%;
 }
-
 
 .buttons .btn{
     width: 400px;
+    letter-spacing: 5px;
+    color: white;
 }
 
 .loginButton:hover, .signupButton:hover {
   background-color: #333333;
   color: #33CC99;
-  letter-spacing: 7px;
+  letter-spacing: 8px;
 }
 
-
-
 .loginButton{
-    color: white;
     background-color: #33CC99;
 }
 
 .signupButton{
-    color: white;
     background-color: black;
-     <!--#FF3300;-->
 }
 
 .idButton{
     color: black;
     background-color: transparent;
     border-color: black;
+    font-size: 9px;
+    letter-spacing: 5px;
 }
 
 .idButton:hover{
-    color: black;
-    font-weight: bold;
-    background-color: #555;
-}
-
-
-
-h4{
-    margin-bottom: 0;
     color: white;
+    border-color: #33CC99;
+    letter-spacing: 6px;
+
 }
 
-h5{
+
+/*-------------------------------| TEXT |-----------------------------------*/
+
+
+h4, h5{
     margin-bottom: 0;
     color: white;
 }
@@ -100,14 +91,4 @@ p{
     color: #555;
     margin-bottom: 0px;
     font-weight: bold;
-}
-
-.search{
-    padding-top: 20px;
-}
-
-body{
-
-    text-transform: uppercase;
-    letter-spacing: 5px;
 }

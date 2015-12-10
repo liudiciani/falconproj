@@ -239,10 +239,23 @@ var online = require('../lib/online').online;
 ************************************************************************************/
 
     router.get('/signup', (req, res) => {
+          var user = req.session.user;
+          var isAdmin = false;
+          var isLoggedIn = false;
+
+          if(user && online[user.email]){
+            isLoggedIn = true;
+            if(user.admin === 'true')
+                isAdmin = true;
+          }
+
           var message = req.flash('signup') || 'Welcome to the Sign Up Page.';
           res.render('signup', {
             title: "Sign Up Page",
-            message:message
+            message:message,
+            isLoggedIn: isLoggedIn,
+            isAdmin: isAdmin
+
           });
     });
 
