@@ -22,16 +22,15 @@
 
 
 
+/*---------------------------------| FOOTER |-------------------------------*/
 
-
-
-          footer {
-              background-color: #f1f1f1;
-              color: #555;
-              padding: 15px;
-              margin-top: 50px;
-              margin-bottom: 0px;
-            }
+     footer {
+         background-color: #f1f1f1;
+         color: #555;
+         padding: 15px;
+         margin-top: 50px;
+         margin-bottom: 0px;
+      }
 
 
 }
