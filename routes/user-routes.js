@@ -204,7 +204,6 @@ var online = require('../lib/online').online;
  This is the route that handles updating a user's contact information in the database
  when they sign up for a new account.*/
 
-
 router.post('/update', (req, res) => {
     //grab the input values from the update user information form.
     var name = req.body.name;
@@ -228,6 +227,18 @@ else{
         }
     });
 }
+});
+
+/************************************************************************************
+**************************| uurl redirection ROUTE |*************************************
+************************************************************************************
+        This is the route that redirects a visitor to a uurl route 
+        when they enter it and click the button on the mainhome.*/
+
+router.get('/redirect_to_uurl', (req, res) => {
+  var uurl = req.query.uurl;
+  req.flash('/'+uurl, "Use this page to contact the item owner");
+  res.redirect('/'+uurl);
 });
 
 /************************************************************************************
