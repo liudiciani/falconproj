@@ -325,7 +325,6 @@ router.get('/redirect_to_uurl', (req, res) => {
 
 //If user is online, render page where user can edit information
             if(user && online[user.email]){
-                var u = {};
                 model.search(user.uurl, function(err, data){
                   if(err) {
                     req.flash('user-profile', "Database error");
