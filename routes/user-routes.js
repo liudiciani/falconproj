@@ -207,11 +207,14 @@ var online = require('../lib/online').online;
 router.post('/update', (req, res) => {
     console.log("WE REALLY OUT HERE!!!!!");
     //grab the input values from the update user information form.
-    var name = req.body.name;
+    console.log(req.body);
+    console.log(res.body);
+    var name = req.body.fname;
+  
     var phone = req.body.phone;
     var email = req.body.email;
     var contact_info = req.body.contact_info;
-console.log("HERE THEY ARE:  " + name + phone + email+contact_info);
+  //console.log("HERE THEY ARE:  " + name + phone + email+contact_info);
 
 if( !name || !phone || !email ){
     console.log("sdfjalksdjfkasldjf");
@@ -326,7 +329,8 @@ router.get('/redirect_to_uurl', (req, res) => {
                 res.render('profile-edit', {
                 isLoggedIn: true,
                 isAdmin: (user.admin === 'yes'),
-                name:user.fname+" "+user.lname,
+                fname:user.fname,
+                lname:user.lname,
                 phone:user.phone,
                 email:user.email
               });
