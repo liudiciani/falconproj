@@ -205,32 +205,31 @@ var online = require('../lib/online').online;
  when they sign up for a new account.*/
 
 router.post('/update', (req, res) => {
-    console.log("WE REALLY OUT HERE!!!!!");
     //grab the input values from the update user information form.
-    console.log(req.body);
-    console.log(res.body);
-    var name = req.body.fname;
-  
+    var fname = req.body.fname;
+    var lname = req.body.lname;
     var phone = req.body.phone;
     var email = req.body.email;
     var contact_info = req.body.contact_info;
-  //console.log("HERE THEY ARE:  " + name + phone + email+contact_info);
 
-if( !name || !phone || !email ){
-    console.log("sdfjalksdjfkasldjf");
+if( !fname || !lname || !phone || !email ){
     req.flash('user-profile','one of the info fields was left blank');
     res.redirect('/user-profile');
 }
 else{
-    model.update(name,phone,contact_info,email,function(error,updatedUser){
+    model.update(fname, lname, phone,contact_info,email,function(error,updatedUser){
         if(error){
             req.flash('user-profile',error);
             res.redirect('/user-profile');
         }
         else{
             console.log("SUCCESS!!!!");
-            req.flash('user-profile','User Addition Successful!');
-            res.redirect('/user-profile');
+            req.session.user.fname = fname;
+            req.session.user.lname = lname;
+            req.session.user.phone = phone;
+            req.session.user.email = email;
+            req.flash('/userhome','User Addition Successful!');
+            res.redirect('/userhome');
         }
     });
 }
@@ -326,14 +325,26 @@ router.get('/redirect_to_uurl', (req, res) => {
 
 //If user is online, render page where user can edit information
             if(user && online[user.email]){
-                res.render('profile-edit', {
-                isLoggedIn: true,
-                isAdmin: (user.admin === 'yes'),
-                fname:user.fname,
-                lname:user.lname,
-                phone:user.phone,
-                email:user.email
+                var u = {};
+                model.search(user.uurl, function(err, data){
+                  if(err) {
+                    req.flash('user-profile', "Database error");
+                    res.redirect('/user-profile');
+                  }
+                  else{
+                    console.log(data);
+                      res.render('profile-edit', {
+                      isLoggedIn: true,
+                      isAdmin: (user.admin === 'yes'),
+                      fname:data.fname,
+                      lname:data.lname,
+                      phone:data.phone,
+                      email:data.email,
+                      contact_info:data.contact_info
               });
+                  }
+                });
+
             }
         });
 
