@@ -75,16 +75,6 @@
     color:white;
 }
 
-.signup{
-    color: black;
-    border-color: #FF3300;
-    background-color: transparent;
-}
-
-.signup:hover{
-    border-color: black;
-    color: black;
-    }
 
 .sidenav .viewprofile{
     margin-top: 30px;
