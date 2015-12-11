@@ -205,13 +205,16 @@ var online = require('../lib/online').online;
  when they sign up for a new account.*/
 
 router.post('/update', (req, res) => {
+    console.log("WE REALLY OUT HERE!!!!!");
     //grab the input values from the update user information form.
     var name = req.body.name;
     var phone = req.body.phone;
     var email = req.body.email;
     var contact_info = req.body.contact_info;
+console.log("HERE THEY ARE:  " + name + phone + email+contact_info);
 
-if(!contact_info || !name || !phone || !email ){
+if( !name || !phone || !email ){
+    console.log("sdfjalksdjfkasldjf");
     req.flash('user-profile','one of the info fields was left blank');
     res.redirect('/user-profile');
 }
@@ -222,6 +225,7 @@ else{
             res.redirect('/user-profile');
         }
         else{
+            console.log("SUCCESS!!!!");
             req.flash('user-profile','User Addition Successful!');
             res.redirect('/user-profile');
         }
