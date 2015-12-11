@@ -14,26 +14,26 @@
 
 <body>
 
-<!-----------------------------------------------------------------------
+<!=----------------------------------------------------------------------
 --------------------------------| LEFT PANE |----------------------------
 ------------------------------------------------------------------------>
 <div class="container-fluid text-center">
   <div class="row content">
     <div class="col-sm-4 sidenav">
         <a href="/user-profile"> <button type="button" class="btn viewprofile btn-default btn-lg">Edit Profile</button></button></a>
-        <a href="/user-profile"> <button type="button" class="btn viewprofile btn-default btn-lg">View Profile</button></button></a>
+        <a href="/{{uurl}}"> <button type="button" class="btn viewprofile btn-default btn-lg">View Profile</button></button></a>
     </div>
 
 <!-----------------------------------------------------------------------
 --------------------------------| RIGHT PANE |---------------------------
 ------------------------------------------------------------------------>
 
-<!------------------------------| UPPER |------------------------------->
+<!=-----------------------------| UPPER |------------------------------->
     <div class="col-sm-8 upper">
       <h1>Welcome back, {{fname}}!</h1>
       <hr>
     </div>
-<!------------------------------| LOWER |------------------------------->
+<!=-----------------------------| LOWER |------------------------------->
     <div class = "col-sm-8 lower">
               <h5>Here is a summary of your personal information.</h5>
               <div class="userhometable">
@@ -68,6 +68,14 @@
                                        </td>
                                        <td>
                                          <p>{{uurl}}</p>
+                                       </td>
+                                     </tr>
+                                     <tr>
+                                       <td>
+                                         <span class = "header">Additional Info:</span>
+                                       </td>
+                                       <td>
+                                         <p>{{contact_info}}</p>
                                        </td>
                                      </tr>
                                     </tr>

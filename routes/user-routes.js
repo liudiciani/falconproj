@@ -376,6 +376,7 @@ router.get('/redirect_to_uurl', (req, res) => {
           name: user.fname+" "+user.lname,
           email:user.email,
           uurl: user.uurl,
+          contact_info: user.contact_info,
           isAdmin: (user.admin === 'yes'),
           phone: user.phone,
           isLoggedIn: true
