@@ -39,55 +39,40 @@
 <!=-------------------------------| LOWER |--------------------------------------->
     <div class = "lowpane">
      <h1>Contact&nbsp;<span style="color:#33CC99">Me</span></h1>
-     <h4>please use the information below to contact me about my item</h4>
+     <h5>Edit your contact information below.
+     Enter a customized message for your viewer in the box provided</h5>
      <br>
 
-                 <div class="table">
-                                 <center>
-                                 <table>
-                                       <tr>
-                                         <td>
-                                           <span class = "header">name:</span>
-                                         </td>
-                                         <td>
-                                           <p>{{name}}</p>
-                                       </tr>
-                                       <tr>
-                                         <td>
-                                          <span class = "header">email:</span>
-                                         </td>
-                                         <td>
-                                           <p>{{email}}</p>
-                                         </td>
-                                       </tr>
-                                        <tr>
-                                          <td>
-                                            <span class = "header">phone:</span>
-                                          </td>
-                                          <td>
-                                            <p>{{phone}}</p>
-                                          </td>
-                                        </tr>
-                                       </tr>
-                                       </tr>
-                                     </table>
-                                 </p>
-                         </center>
+         <form class="form-inline">
+                  <div class="form-group">
+                    <label for="label">Name</label>
+                    <input type="text" class="form-control" id="name" value="{{name}}">
+                  </div><br>
+                  <div class="form-group">
+                    <label for="label">Email</label>
+                    <input type="text" class="form-control" id="email" value="{{email}}">
+                  </div><br>
+                  <div class="form-group">
+                    <label for="label">Phone</label>
+                    <input type="text" class="form-control" id="phone" value="{{phone}}">
                     </div>
+                  <br>
+                  <div class="form-group">
+                    <label for="label"></label>
+                    <input type="text" class="form-control contactinfo" id="contact_info" value="{{contact_info}}">
+                  </div>
+                  <br>
+                <div class="button">
+                  <button type="submit" class="btn update btn-default btn-lg">Update Info</button>
+                </div>
+         </form>
+  </div>
 
 
-       </div>
-
-    <br><br>
-
-
-    <div class="form-group col-sm-4 col-sm-offset-4">
-      <label for="comment"><h5>or enter your own customized message:</h5></label>
-      <input type="text" class="form-control" rows="5" id="comment" value="{{contact_info}}"></textarea>
-    </div>
 
 
 
+<br>
 
 </div>
 
