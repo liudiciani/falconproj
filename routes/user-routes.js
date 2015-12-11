@@ -283,55 +283,27 @@ else{
 
 
 /************************************************************************************
-*********************************| UURL ROUTE |***************************************
+*********************************| USER-PROFILE ROUTE |***************************************
 ************************************************************************************/
 
 
         router.get('/user-profile', (req, res) => {
             var user = req.session.user;
 
-            //grab the uurl value from the form on the mainHome page
-            var uurl = req.query.uurl;
 
             var isAdmin;
             var isLoggedIn;
 
- //If there is no user session, this is likely a visitor typing in the direct uurl for that user
+ //If there is no user session, redirect back to mainHome
             if(!user){
-              model.search(uurl,function(error,userSearched){
-                if(error){
-                  req.flash('mainHome','No user found with that unique URL');
-                  res.redirect('/mainHome');
-                }
-                else{
-                  res.render('user-profile', {
-                    isLoggedIn: false,
-                    isAdmin: false,
-                    name:userSearched.fname+" "+userSearched.lname,
-                    email:userSearched.email
-                  });
-                }
-              });
+                req.flash('mainHome','No user session exists');
+                req.redirect('/mainHome');
             }
 
-//If session has expired, render about page with both values set to false
+//If session has expired, redirect back to mainHome
             if(user && !online[user.email]){
-            //grab the uurl value from the form on the mainHome page
-            var uurl = req.body.uurl;
-            model.search(uurl,function(error,user){
-                if(error){
-                  req.flash('mainHome','No user found with that unique URL');
-                  res.redirect('/mainHome');
-                }
-                else{
-                  res.render('user-profile', {
-                    isLoggedIn: false,
-                    isAdmin: false,
-                    name:user.fname+" "+user.lname,
-                    email:user.email
-                  });
-                }
-             });
+                req.flash('mainHome','User is not online');
+                req.redirect('/mainHome');
             }
 
 //If user is online, render page where user can edit information
