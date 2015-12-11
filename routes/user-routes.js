@@ -228,6 +228,7 @@ else{
             req.session.user.lname = lname;
             req.session.user.phone = phone;
             req.session.user.email = email;
+            req.session.user.contact_info = contact_info;
             req.flash('/userhome','User Addition Successful!');
             res.redirect('/userhome');
         }
