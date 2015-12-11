@@ -223,7 +223,6 @@ else{
             res.redirect('/user-profile');
         }
         else{
-            console.log("SUCCESS!!!!");
             req.session.user.fname = fname;
             req.session.user.lname = lname;
             req.session.user.phone = phone;
@@ -333,7 +332,6 @@ router.get('/redirect_to_uurl', (req, res) => {
                     res.redirect('/user-profile');
                   }
                   else{
-                    console.log(data);
                       res.render('profile-edit', {
                       isLoggedIn: true,
                       isAdmin: (user.admin === 'yes'),
