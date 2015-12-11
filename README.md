@@ -75,9 +75,9 @@ We use session states to keep track of whether or not a user is an admin, and if
 
 FoundIt uses a relational PostgreSQL database hosted by ElephantSQL. The primary table of our application is depicted below, with a single mock data user.
 
-| uid | fname | lname | email | password | uurl | admin | phone |
-| --- | ----- | ----- | ----- | -------- | ---- | ----- | ----- |
-|1 | John | Doe | jdoe@umass.edu | falcon2 | 56qp2 | no | (413)-545-2222 |
+| uid | fname | lname | email | password | uurl | admin | phone | contact_info |
+| --- | ----- | ----- | ----- | -------- | ---- | ----- | ----- | ------------ |
+|1 | John | Doe | jdoe@umass.edu | falcon2 | 56qp2 | no | (413)-545-2222 | Thanks for finding my item! Call me at 908-666-666 |
 
 The database keeps track of all users. It allows for users to log in and view their profile pages. The users table also keeps track of who is an admin, and each users individual unique url. If a user is an admin, he or she can view a dashboard page mentioned above. The database is queried each time a unique URL is passed as a path in an attempt to find a user whose items must have been lost.
 
