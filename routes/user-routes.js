@@ -223,11 +223,11 @@ else{
             res.redirect('/user-profile');
         }
         else{
-            console.log("SUCCESS!!!!");
             req.session.user.fname = fname;
             req.session.user.lname = lname;
             req.session.user.phone = phone;
             req.session.user.email = email;
+            req.session.user.contact_info = contact_info;
             req.flash('/userhome','User Addition Successful!');
             res.redirect('/userhome');
         }
@@ -332,7 +332,6 @@ router.get('/redirect_to_uurl', (req, res) => {
                     res.redirect('/user-profile');
                   }
                   else{
-                    console.log(data);
                       res.render('profile-edit', {
                       isLoggedIn: true,
                       isAdmin: (user.admin === 'yes'),
