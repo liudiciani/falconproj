@@ -308,13 +308,13 @@ router.get('/redirect_to_uurl', (req, res) => {
  //If there is no user session, redirect back to mainHome
             if(!user){
                 req.flash('mainHome','No user session exists');
-                req.redirect('/mainHome');
+                res.redirect('/mainHome');
             }
 
 //If session has expired, redirect back to mainHome
             if(user && !online[user.email]){
                 req.flash('mainHome','User is not online');
-                req.redirect('/mainHome');
+                res.redirect('/mainHome');
             }
 
 //If user is online, render page where user can edit information
