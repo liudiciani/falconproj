@@ -1,6 +1,9 @@
+#This was our CS326 semester project in Fall 2015.
+#Development has been ceased, even though FoundIt is kickass.
+_________________________________________
 # FoundIt
 ### Unique ID Finding Web Application!
-#### Current App State: "On Point"
+#### Current App State: "Complete"
 ##### Final Project Document: https://docs.google.com/document/d/1CZ4Bvojb6ceUhNWTm7lcgma1OrO8yH-rE66An8zWUmk/edit?usp=sharing
 *Team Roles:*
 
